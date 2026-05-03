@@ -38,23 +38,37 @@
     gap: 16px;
   }
   #banner-logo { font-family: 'VT323', monospace; font-size: 30px; color: #0a8128; letter-spacing: 3px; line-height: 1; }
+  #banner-logo img { height: 40px; width: auto; object-fit: contain; transition: transform 0.3s ease;}
+  #banner-logo img:hover { transform: scale(2.5);z-index: 5;}
   #banner-sub { font-size: 11px; color: #666; line-height: 1.5; border-left: 3px solid #0a8128; padding-left: 10px; }
   #banner-sub span { color: #0a8128; display: block; font-size: 12px; }
   #clock-box { margin-left: auto; text-align: right; font-size: 11px; color: #444; }
   #clock-box #clock { color: #0a8128; font-family: 'VT323', monospace; font-size: 18px; }
 
   /* IMAGE BANNER */
-  #img-banner {
-    width: 100%;
-    height: 150px;
-    background: #0a0f0a;
-    border-bottom: 2px solid #1a1a1a;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+#img-banner {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("DP-15583-018.jpg");
+  background-size: cover;
+  background-position: 70% 10%;
+
+  border-bottom: 2px solid #1a1a1a;
+}
+.banner-text {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%,-50%);
+  color: #cecccc;
+  font-family: 'VT324', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+  z-index: 3;
+}
   #img-banner::after {
     content: '';
     position: absolute; inset: 0;
@@ -62,7 +76,7 @@
     pointer-events: none;
     z-index: 2;
   }
-  .corner-mark { position: absolute; width: 14px; height: 14px; border-color: #0a8128; border-style: solid; z-index: 3; }
+  .corner-mark { position: absolute; width: 14px; height: 14px; border-color: #000000; border-style: solid; z-index: 3; }
   .tl { top: 5px; left: 5px; border-width: 2px 0 0 2px; }
   .tr { top: 5px; right: 5px; border-width: 2px 2px 0 0; }
   .bl { bottom: 5px; left: 5px; border-width: 0 0 2px 2px; }
@@ -71,14 +85,17 @@
   #ph .ph-icon { font-family: 'VT323', monospace; font-size: 42px; }
   #ph .ph-txt { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
   #banner-lbl { position: absolute; bottom: 6px; right: 10px; font-size: 10px; letter-spacing: 2px; color: #1a3a1a; z-index: 3; }
-
+a {
+  text-decoration: none;
+}
   /* NAV */
   #navbar {
     background: #0e0e0e;
     border-bottom: 2px solid #1a1a1a;
     padding: 5px 10px;
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    justify-content: center;
     flex-wrap: wrap;
   }
   .nav-btn {
@@ -99,12 +116,14 @@
   .nb-r { background:#1a0a0a; color:#7a3a3a; border-top:1px solid #7a3a3a; border-left:1px solid #7a3a3a; border-right:1px solid #7a3a3a; }
   .nb-p { background:#120a1a; color:#6a4a8a; border-top:1px solid #6a4a8a; border-left:1px solid #6a4a8a; border-right:1px solid #6a4a8a; }
   .nb-o { background:#1a1000; color:#7a5000; border-top:1px solid #7a5000; border-left:1px solid #7a5000; border-right:1px solid #7a5000; }
+  .nb-com { background:#211d1d; color:#a3a0a0; border-top:1px solid #a3a0a0; border-left:1px solid #a3a0a0; border-right:1px solid #a3a0a0; }
   .nb-g:hover,.nb-g.active{background:#308b47;color:#000;border-bottom:3px solid #006600;}
   .nb-c:hover,.nb-c.active{background:#2a828c;color:#000;border-bottom:3px solid #006677;}
   .nb-y:hover,.nb-y.active{background:#ae992f;color:#000;border-bottom:3px solid #776600;}
   .nb-r:hover,.nb-r.active{background:#862f2f;color:#000;border-bottom:3px solid #770000;}
   .nb-p:hover,.nb-p.active{background:#78449f;color:#000;border-bottom:3px solid #660099;}
   .nb-o:hover,.nb-o.active{background:#9b6c26;color:#000;border-bottom:3px solid #774400;}
+  .nb-com:hover,.nb-com.active{background:#777575;color:#000;border-bottom:3px solid #a3a0a0;}
 
   /* BODY LAYOUT */
   #body-row { display: flex; flex: 1; }
@@ -126,6 +145,7 @@
   .sl-r{color:#652222;}.sl-r::before{color:#ff4444;}.sl-r:hover,.sl-r.active{color:#ff4444;background:#130808;border-left-color:#ff4444;}
   .sl-p{color:#40265b;}.sl-p::before{color:#cc88ff;}.sl-p:hover,.sl-p.active{color:#cc88ff;background:#0f0813;border-left-color:#cc88ff;}
   .sl-o{color:#6a4106;}.sl-o::before{color:#ff9900;}.sl-o:hover,.sl-o.active{color:#ff9900;background:#130d00;border-left-color:#ff9900;}
+  .sl-com{color:#858383;}.sl-com::before{color:#858383;}.sl-com:hover,.sl-com.active{color:#a3a0a0;background:#1a0a0a;border-left-color:#a3a0a0;}
 
   #status-box { margin: 12px 8px 0; border: 1px solid #1a1a1a; padding: 8px; background: #060606; font-size: 11px; }
   .st-title { color: #6b6b6b; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; border-bottom: 1px solid #141414; padding-bottom: 3px; }
@@ -133,26 +153,27 @@
   .st-key { color: #807f7f; }
 
   /* CONTENT */
-  #content { flex: 1; padding: 12px; overflow: auto; }
-  .section { display: none; }
+  #content { flex: 1; padding: 12px; overflow: visible; }
+  .section { display: none; overflow: visible;}
   .section.visible { display: block; }
 
   .sec-hdr { padding: 7px 12px; font-family: 'VT323', monospace; font-size: 22px; letter-spacing: 2px; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
   .sec-hdr::before { content: '//'; color: #333; font-size: 14px; }
-  .hdr-g{background:#0a1a0a;color:#0c7c28;border:1px solid #0c7c28;}
-  .hdr-c{background:#0a1a1a;color:#046e7a;border:1px solid #046e7a;}
-  .hdr-y{background:#1a1600;color:#9c8306;border:1px solid #9c8306;}
-  .hdr-r{background:#1a0a0a;color:#832d2d;border:1px solid #832d2d;}
-  .hdr-p{background:#120a1a;color:#7e44aa;border:1px solid #7e44aa;}
-  .hdr-o{background:#1a1000;color:#a86b0e;border:1px solid #a86b0e;}
+  .hdr-g{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+  .hdr-c{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+  .hdr-y{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+  .hdr-r{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+  .hdr-p{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+  .hdr-o{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+  .hdr-com{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
 
-  .panel { border: 1px solid #1a1a1a; background: #0a0a0a; padding: 10px 12px; margin-bottom: 10px; }
+  .panel { border: 1px solid #1a1a1a; background: #0a0a0a; overflow: visible;padding: 10px 12px; margin-bottom: 10px; }
   .panel-title { font-size: 9px; letter-spacing: 2px; color: #686868; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid #141414; }
 
   .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .about-text { line-height: 1.8; color: #888; font-size: 12px; }
+  .about-text { line-height: 1.8; color: #aaaaaa; font-size: 12px; }
   .about-text p { margin-bottom: 7px; }
-  .hlg{color:#00ff41;}.hlc{color:#00e5ff;}.hly{color:#ffd600;}
+  .hlg{color:#32a14e;}.hlc{color:#1a727c;}.hly{color:#8e761f;}
 
   .info-tbl { width: 100%; font-size: 11px; }
   .info-tbl td { padding: 3px 0; }
@@ -185,8 +206,8 @@
   .cert-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
   .cert-card { border: 1px solid #1a1a1a; padding: 12px; background: #060606; text-align: center; }
   .cert-badge { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-family: 'VT323', monospace; font-size: 16px; background: #080808; }
-  .cert-name { font-size: 11px; color: #888; margin-bottom: 3px; }
-  .cert-org { font-size: 10px; color: #333; }
+  .cert-name { font-size: 11px; color: #cdcdcd; margin-bottom: 3px; }
+  .cert-org { font-size: 10px; color: #767676; }
   .cert-st { margin-top: 5px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
   .cs-e{color:#00ff41;}.cs-p{color:#ffd600;}.cs-n{color:#333;}
 
@@ -196,9 +217,17 @@
   .c-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #333; }
   .c-val { font-size: 11px; color: #666; }
 
+  .com-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .com-card { display: flex;overflow: visible; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #141414; padding: 10px; background: #060606; }
+  .com-content { flex: 1; }
+  .com-desc { font-size: 11px; color: #666; margin-top: 5px; line-height: 1.6; }
+  .com-img { width: 120px; height: 80px; object-fit: cover; border: 1px solid #00ff41;transition: transform 0.3s ease;}
+  .com-img:hover { transform: scale(4);z-index: 5;}
+
+
   /* TICKER */
   #ticker { background: #050505; border-top: 1px solid #141414; padding: 4px 0; overflow: hidden; white-space: nowrap; }
-  #ticker-inner { display: inline-block; animation: sl 30s linear infinite; font-size: 10px; color: #2a2a2a; }
+  #ticker-inner { display: inline-block; animation: sl 30s linear infinite; font-size: 10px; color: #565656; }
   @keyframes sl { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
   .blink { animation: bk 1s step-end infinite; }
@@ -212,7 +241,7 @@
   <!-- HEADER -->
   <div id="top-banner">
     <div>
-      <div id="banner-logo">卐</div>
+      <div id="banner-logo"><img src="Images/logo.png" alt="logo"></div>
     </div>
     <div id="banner-sub">
       <span>SARTHAK MISHRA | SOC ANALYST &amp; BLUE TEAM OPERATOR</span>
@@ -230,17 +259,20 @@
     <div class="corner-mark tr"></div>
     <div class="corner-mark bl"></div>
     <div class="corner-mark br"></div>
-    <img src="DP-15583-018.jpg" style="width:100%; height:100%; object-fit:cover; object-position:70% 10%;">
+    <img src="Images/DP-15583-018.jpg" style="width:100%; height:100%; object-fit:cover; object-position:70% 10%;">
+    <div class="banner-text">This image is irrelevant to this website.<br>I just found it aesthetic.</div>
+    <div id="banner-lbl"></div>
     <div id="banner-lbl"></div>
   </div>
 
   <!-- NAV -->
   <div id="navbar">
     <button class="nav-btn nb-g active" onclick="nav('about',this)">About</button>
-    <button class="nav-btn nb-c" onclick="nav('skills',this)">Skills / Tools</button>
+    <button class="nav-btn nb-c" onclick="nav('skills',this)">Skills</button>
     <button class="nav-btn nb-y" onclick="nav('projects',this)">Projects</button>
-    <button class="nav-btn nb-r" onclick="nav('ctf',this)">CTF Write-ups</button>
+    <button class="nav-btn nb-r" onclick="nav('ctf',this)">Write-ups</button>
     <button class="nav-btn nb-p" onclick="nav('certs',this)">Certifications</button>
+    <button class="nav-btn nb-com" onclick="nav('comp',this)">Competitions</button>
     <button class="nav-btn nb-o" onclick="nav('contact',this)">Contact</button>
   </div>
 
@@ -253,16 +285,18 @@
       <div class="sb-link sl-g active" onclick="nav('about',null,this)">About Me</div>
       <div class="sb-link sl-c" onclick="nav('skills',null,this)">Skills</div>
       <div class="sb-link sl-y" onclick="nav('projects',null,this)">Projects</div>
-      <div class="sb-link sl-r" onclick="nav('ctf',null,this)">CTF Write-ups</div>
+      <div class="sb-link sl-r" onclick="nav('ctf',null,this)">Write-ups</div>
       <div class="sb-link sl-p" onclick="nav('certs',null,this)">Certifications</div>
+      <div class="sb-link sl-com" onclick="nav('comp',null,this)">Competitions</div>
       <div class="sb-link sl-o" onclick="nav('contact',null,this)">Contact</div>
+
 
       <div id="status-box">
         <div class="st-title">Quick Info :</div>
-        <div class="st-row"><span class="st-key">Role</span><span style="color:#00ff41;">SOC Analyst</span></div>
-        <div class="st-row"><span class="st-key">Focus</span><span style="color:#00e5ff;">Blue Team</span></div>
-        <div class="st-row"><span class="st-key">CTFs</span><span style="color:#ffd600;">Active</span></div>
-        <div class="st-row"><span class="st-key">Open To</span><span style="color:#cc88ff;">SOC Roles</span></div>
+        <div class="st-row"><span class="st-key">Role</span><span style="color:#2d7d41;">SOC Analyst</span></div>
+        <div class="st-row"><span class="st-key">Focus</span><span style="color:#2c7c85;">Blue Team</span></div>
+        <div class="st-row"><span class="st-key">Writeups</span><span style="color:#88782c;">Active</span></div>
+        <div class="st-row"><span class="st-key">Open To</span><span style="color:#633984;">SOC Roles</span></div>
       </div>
     </div>
 
@@ -278,51 +312,22 @@
             <div class="about-text">
               <p>Hey, I'm <span class="hlg">Sarthak Mishra</span> — a security person on a mission to understand how systems break so I can help make them stronger.</p>
               <p>I'm learning <span class="hlc">SOC (Security Operations Center) &amp; Blue Team cybersecurity</span>, building skills through log analysis, SIEM tools, home labs, and real-world attack detection and response simulations.</p>
-              <p>Goal: <span class="hly">CEH v13 </span> Certification and a career in Cybersecurity.</p>
+              <p>I'm working on projects to sharpen my skills in threat detection, incident response, SIEM tools, home labs, and real-world attack detection and response simulations.</p>
+              <p>Preparing for the <span class="hly">CEH v13 </span> Certification and a career in Cybersecurity.</p>
             </div>
-          </div>
-          <div class="panel">
-            <div class="panel-title">Details</div>
-            <table class="info-tbl">
-              <tr><td>Name</td><td style="color:#00ff41;">Sarthak Mishra</td></tr>
-              <tr><td>Focus</td><td style="color:#00e5ff;">Security Operations Center</td></tr>
-              <tr><td>Location</td><td>Remote,India</td></tr>
-              <tr><td>Status</td><td style="color:#ffd600;">Open to Work</td></tr>
-              <tr><td>Email</td><td>sarthakatwork08@gmail.com</td></tr>
-              <tr><td>GitHub</td><td>https://github.com/Shaivarth</td></tr>
-            </table>
-          </div>
-          <div class="panel">
-            <div class="panel-title">Current Focus</div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">SOC / Blue Team</div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">Threat Detection & Log Analysis</div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">SIEM Tools (Splunk / ELK)</div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">Incident Response</div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">TryHackMe SOC Paths / Blue Team Labs</div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">Networking & Security </div>
-            <div class="sk-item" style="color:#888;padding:3px 0;">Python Scripting for Automation</div>
-
-
           </div>
         </div>
       </div>
 
       <!-- SKILLS -->
       <div id="sec-skills" class="section">
-        <div class="sec-hdr hdr-c">SKILLS / TOOLS</div>
-        <div class="panel">
-          <div class="panel-title">Proficiency</div>
-          <div class="bar-row"><div class="bar-lbl"><span style="color:#00ff41;">Linux / CLI</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%;background:#20a140;"></div></div></div>
-          <div class="bar-row"><div class="bar-lbl"><span style="color:#00e5ff;">Network Analysis</span><span>75%</span></div><div class="bar-track"><div class="bar-fill" style="width:75%;background:#39c6d6;"></div></div></div>
-          <div class="bar-row"><div class="bar-lbl"><span style="color:#ffd600;">Log Analysis</span><span>65%</span></div><div class="bar-track"><div class="bar-fill" style="width:65%;background:#c0a627;"></div></div></div>
-          <div class="bar-row"><div class="bar-lbl"><span style="color:#cc88ff;">SIEM (Splunk / ELK)</span><span>60%</span></div><div class="bar-track"><div class="bar-fill" style="width:60%;background:#8433c3;"></div></div></div>
-          <div class="bar-row"><div class="bar-lbl"><span style="color:#ff9900;">Python (Automation)</span><span>70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#bc7e22;"></div></div></div>
-        </div>
+        <div class="sec-hdr hdr-c">SKILLS</div>
+
         <div class="sk-grid">
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#00e5ff;">Recon</div><div class="sk-item">Nmap</div><div class="sk-item">Gobuster</div><div class="sk-item">Nikto</div><div class="sk-item">Shodan</div></div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#ff4444;">Exploitation</div><div class="sk-item">Metasploit</div><div class="sk-item">Burp Suite</div><div class="sk-item">SQLMap</div><div class="sk-item">Hydra</div></div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#ffd600;">Languages</div><div class="sk-item">Python</div><div class="sk-item">Bash</div><div class="sk-item">HTML/CSS</div><div class="sk-item">SQL</div></div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#cc88ff;">Platforms</div><div class="sk-item">Kali Linux</div><div class="sk-item">TryHackMe</div><div class="sk-item">HackTheBox</div><div class="sk-item">VirtualBox</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#00e5ff;">MONITORING</div><div class="sk-item">Log Analysis (Linux / Windows Logs)</div><div class="sk-item">Network Traffic Analysis (Wireshark)</div><div class="sk-item">Alert Monitoring</div><div class="sk-item">Threat Detection</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#ff4444;">INCIDENT RESPONSE</div><div class="sk-item">Alert Triage</div><div class="sk-item">Incident Investigation</div><div class="sk-item">Malware Analysis</div><div class="sk-item">IOC Analysis</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#ffd600;">LANGUAGES</div><div class="sk-item">Python</div><div class="sk-item">Bash</div><div class="sk-item">SQL</div><div class="sk-item">PowerShell</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#cc88ff;">PLATFORMS</div><div class="sk-item">Splunk</div><div class="sk-item">Wireshark</div><div class="sk-item">Kali Linux</div><div class="sk-item">TryHackMe</div></div>
         </div>
       </div>
 
@@ -330,34 +335,29 @@
       <div id="sec-projects" class="section">
         <div class="sec-hdr hdr-y">PROJECTS</div>
         <div class="proj-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#141414'">
-          <div class="proj-name" style="color:#00ff41;">[01] Home Pentesting Lab</div>
-          <div class="proj-tags"><span class="tag" style="color:#00ff41;">Networking</span><span class="tag" style="color:#00e5ff;">VirtualBox</span><span class="tag" style="color:#ffd600;">Kali Linux</span></div>
-          <div class="proj-desc">Fully isolated virtual network with vulnerable VMs (Metasploitable, DVWA). Practised exploitation, privilege escalation, and lateral movement.</div>
+          <div class="proj-name" style="color:#e8e8e8;">[01] LOG ANALYSIS LAB</div>
+          <div class="proj-tags"><span class="tag" style="color:#00ff41;">LINUX LOGS</span><span class="tag" style="color:#00e5ff;">SYSLOG</span><span class="tag" style="color:#ffd600;">ANALYSIS</span></div>
+          <div class="proj-desc">Analyzed system logs (auth.log, syslog) to identify failed login attempts, suspicious activity, and basic attack patterns.</div>
         </div>
         <div class="proj-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#141414'">
-          <div class="proj-name" style="color:#00e5ff;">[02] Python Port Scanner</div>
-          <div class="proj-tags"><span class="tag" style="color:#00e5ff;">Python</span><span class="tag" style="color:#cc88ff;">Sockets</span><span class="tag" style="color:#ff9900;">Scripting</span></div>
-          <div class="proj-desc">Multi-threaded port scanner with banner grabbing, service detection, and JSON output for reporting.</div>
-        </div>
-        <div class="proj-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#141414'">
-          <div class="proj-name" style="color:#ffd600;">[03] Web Vuln Notes DB</div>
-          <div class="proj-tags"><span class="tag" style="color:#ff4444;">OWASP</span><span class="tag" style="color:#ffd600;">SQLi</span><span class="tag" style="color:#cc88ff;">XSS</span></div>
-          <div class="proj-desc">Personal knowledge base covering OWASP Top 10 with PoC examples, payload lists, and remediation notes.</div>
+          <div class="proj-name" style="color:#e8e8e8;">[02] SIEM SETUP (SPLUNK)</div>
+          <div class="proj-tags"><span class="tag" style="color:#00e5ff;">Splunk</span><span class="tag" style="color:#cc88ff;">LOG MONITORING</span><span class="tag" style="color:#ff9900;">ALERTS</span></div>
+          <div class="proj-desc">Set up a local Splunk instance, ingested sample logs, and created basic queries to detect login failures and unusual activity.</div>
         </div>
       </div>
 
-      <!-- CTF -->
+      <!-- writeups -->
       <div id="sec-ctf" class="section">
-        <div class="sec-hdr hdr-r">CTF WRITE-UPS</div>
+        <div class="sec-hdr hdr-r">WRITE-UPS</div>
         <div class="panel">
           <div class="panel-title">Completed Challenges</div>
           <table class="ctf-tbl">
             <tr><th>#</th><th>Challenge</th><th>Platform</th><th>Category</th><th>Diff</th><th>Pts</th></tr>
-            <tr><td>01</td><td style="color:#00ff41;cursor:pointer;">Simple CTF</td><td>TryHackMe</td><td>Web/Privesc</td><td><span class="diff easy">EASY</span></td><td style="color:#00ff41;">100</td></tr>
-            <tr><td>02</td><td style="color:#00ff41;cursor:pointer;">Basic Pentesting</td><td>TryHackMe</td><td>Recon/Crack</td><td><span class="diff easy">EASY</span></td><td style="color:#00ff41;">100</td></tr>
-            <tr><td>03</td><td style="color:#00e5ff;cursor:pointer;">Mr Robot CTF</td><td>TryHackMe</td><td>Web/Linux</td><td><span class="diff med">MEDIUM</span></td><td style="color:#00e5ff;">250</td></tr>
-            <tr><td>04</td><td style="color:#00e5ff;cursor:pointer;">Lame</td><td>HackTheBox</td><td>Network</td><td><span class="diff easy">EASY</span></td><td style="color:#00e5ff;">20</td></tr>
-            <tr><td>05</td><td style="color:#ff9900;">[ In Progress ]</td><td>HackTheBox</td><td>Web</td><td><span class="diff hard">HARD</span></td><td style="color:#333;">—</td></tr>
+            <tr><td>01</td><td style="color:#ccd4cf;cursor:pointer;">Blue Team Fundamentals</td><td>TryHackMe</td><td>SOC / Defensive Security</td><td><span class="diff easy">EASY</span></td><td style="color:#cdc2c2;">—</td></tr>
+            <tr><td>02</td><td style="color:#ccd4cf;cursor:pointer;">Alert Triage & Reporting</td><td>TryHackMe</td><td>Incident Response</td><td><span class="diff easy">EASY</span></td><td style="color:#cdc2c2;">—</td></tr>
+            <tr><td>03</td><td style="color:#ccd4cf;cursor:pointer;">SIEM & EDR</td><td>TryHackMe</td><td>Security Tools</td><td><span class="diff med">MEDIUM</span></td><td style="color:#cdc2c2;">—</td></tr>
+            <tr><td>04</td><td style="color:#ccd4cf;cursor:pointer;">Network & Attack Analysis</td><td>TryHackMe</td><td>Threat Analysis</td><td><span class="diff easy">EASY</span></td><td style="color:#cdc2c2;">—</td></tr>
+            <tr><td>05</td><td style="color:#ccd4cf;cursor:pointer;">SOC Level 1 Path</td><td>TryHackMe</td><td>SOC Training</td><td><span class="diff hard">HARD</span></td><td style="color:#cdc2c2;">—</td></tr>
           </table>
         </div>
       </div>
@@ -366,10 +366,27 @@
       <div id="sec-certs" class="section">
         <div class="sec-hdr hdr-p">CERTIFICATIONS</div>
         <div class="cert-grid" style="margin-top:0;">
-          <div class="cert-card"><div class="cert-badge" style="border:2px solid #00ff41;color:#00ff41;">THM</div><div class="cert-name">Pre Security Path</div><div class="cert-org">TryHackMe</div><div class="cert-st cs-e">[ EARNED ]</div></div>
-          <div class="cert-card"><div class="cert-badge" style="border:2px solid #ffd600;color:#ffd600;">CEH</div><div class="cert-name">Certified Ethical Hacker</div><div class="cert-org">EC-Council</div><div class="cert-st cs-p">[ In Progress ]</div></div>
-          <div class="cert-card"><div class="cert-badge" style="border:2px solid #00e5ff;color:#00e5ff;">eJPT</div><div class="cert-name">Junior Penetration Tester</div><div class="cert-org">eLearnSecurity</div><div class="cert-st cs-p">[ In Progress ]</div></div>
-          <div class="cert-card"><div class="cert-badge" style="border:2px solid #333;color:#333;">OSCP</div><div class="cert-name">Offensive Security OSCP</div><div class="cert-org">Offensive Security</div><div class="cert-st cs-n">[ Planned ]</div></div>
+          <div class="cert-card"><div class="cert-badge" style="border:2px solid #3659c3;color:#3659c3;">THM</div><div class="cert-name">Pre Security</div><div class="cert-org">TryHackMe</div><div class="cert-st cs-e">[ EARNED ]</div></div>
+          <div class="cert-card"><div class="cert-badge" style="border:2px solid #c62424;color:#c62424;">CEHv13</div><div class="cert-name">Certified Ethical Hacker v13</div><div class="cert-org">EC-Council</div><div class="cert-st cs-p">[ In Progress ]</div></div>
+          <div class="cert-card"><div class="cert-badge" style="border:2px solid #777777;color:#777777;">CySA+</div><div class="cert-name">CompTIA Cybersecurity Analyst</div><div class="cert-org">CompTIA</div><div class="cert-st cs-n">[ Planned ]</div></div>
+          <div class="cert-card"><div class="cert-badge" style="border:2px solid #777777;color:#777777;">BTL1</div><div class="cert-name">Blue Team Level 1</div><div class="cert-org">Security Blue Team</div><div class="cert-st cs-n">[ Planned ]</div></div>
+        </div>
+      </div>
+
+      <!-- COMPETITIONS -->
+      <div id="sec-comp" class="section">
+        <div class="sec-hdr hdr-com">COMPETITIONS</div>
+        <div class="panel">
+          <div class="panel-title">Competitions</div>
+          <div class="com-grid"> 
+            <div class="box com-card">
+              <div class="com-content">
+                <h3 style="color:#ffffff;">[01] Health-Hack Hackathon</h3>
+                <p class="com-desc">Built SafeSpace at the Health Hackathon (VIT Bhopal × Johns Hopkins, Feb 2025) : an anonymous mental health support platform with live chat and self-assessment tools. Applied secure coding practices, input validation, and privacy-focused design. Cleared two rounds out of three under time-constrained development.</p>
+              </div>
+              <img src="Images/Hackathon.png" class="com-img">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -379,15 +396,15 @@
         <div class="panel">
           <div class="panel-title">Reach Me</div>
           <div class="contact-grid">
-            <div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#00ff41;">@</div><div><div class="c-lbl">Email</div><div class="c-val">sarthakatwork08@gmail.com</div></div></div>
-            <div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#888;">Git</div><div><div class="c-lbl">GitHub</div><div class="c-val">https://github.com/Shaivarth</div></div></div>
-            <div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#00e5ff;">Li</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">https://www.linkedin.com/in/shaivarth/</div></div></div>
-            <div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#cc88ff;">TG</div><div><div class="c-lbl">Telegram</div><div class="c-val">@shaivarth</div></div></div>
-          </div>
+            <a href="mailto:sarthakatwork08@gmail.com" class="gmail-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#00ff41;">@</div><div><div class="c-lbl">Email</div><div class="c-val">sarthakatwork08@gmail.com</div></div></div></a>
+            <a href="https://github.com/Shaivarth" target="_blank" class="github-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#888;">Git</div><div><div class="c-lbl">GitHub</div><div class="c-val">@Shaivarth</div></div></div></a>
+            <a href="https://www.linkedin.com/in/shaivarth/" target="_blank" class="linkedin-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#24a0ad;">in</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">@shaivarth</div></div></div></a>
+            <a href="https://www.instagram.com/shaivarth/" target="_blank" class="instagram-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#b8216d;">IG</div><div><div class="c-lbl">Instagram</div><div class="c-val">@shaivarth</div></div></div></a>
+          </div> 
           <div style="margin-top:10px;border:1px solid #141414;padding:10px;background:#060606;font-size:11px;color:#444;line-height:1.8;">
-            <span style="color:#00ff41;">root@yourname:~$</span> echo "Open to internships &amp; collaborations."<br>
+            <span style="color:#258e3f;">root@shaivarth:~$</span> echo "Open to internships &amp; collaborations."<br>
             <span style="color:#777;">&gt; Open to internships &amp; collaborations.</span><br>
-            <span style="color:#00ff41;">root@yourname:~$</span> <span class="blink">_</span>
+            <span style="color:#258e3f;">root@shaivarth:~$</span> <span class="blink">_</span>
           </div>
         </div>
       </div>
@@ -397,10 +414,9 @@
 
   <!-- TICKER -->
   <div id="ticker">
-    <span id="ticker-inner">[ All skills for authorized &amp; educational use only ] &nbsp;|&nbsp; [ Kali / Burp Suite / Metasploit / Nmap / Wireshark ] &nbsp;|&nbsp; [ Actively hacking on TryHackMe &amp; HackTheBox ] &nbsp;|&nbsp; [ Goal: OSCP ] &nbsp;|&nbsp; [ All skills for authorized &amp; educational use only ] &nbsp;|&nbsp; [ Kali / Burp Suite / Metasploit / Nmap / Wireshark ] &nbsp;|&nbsp; [ Actively hacking on TryHackMe &amp; HackTheBox ] &nbsp;|&nbsp; [ Goal: OSCP ] &nbsp;|&nbsp;</span>
-  </div>
-
-</div><!-- end #page-center -->
+    <span id="ticker-inner">[ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp; [ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp;</span> </div>
+  
+  </div><!-- end #page-center -->
 
 <script>
   const allNavBtns = document.querySelectorAll('.nav-btn');
@@ -413,7 +429,7 @@
     document.getElementById('sec-' + id).classList.add('visible');
     allNavBtns.forEach(b => b.classList.remove('active'));
     allSbLinks.forEach(b => b.classList.remove('active'));
-    // activate correct nav button
+    // activate correct nav 
     document.querySelectorAll('.nav-btn').forEach(b => {
       if (b.classList.contains(nbMap[id])) b.classList.add('active');
     });
