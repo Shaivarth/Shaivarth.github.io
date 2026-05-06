@@ -173,9 +173,9 @@ a {
   .panel-title { font-size: 9px; letter-spacing: 2px; color: #686868; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid #141414; }
 
   .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .about-text { line-height: 1.8; color: #aaaaaa; font-size: 12px; }
+  .about-text { line-height: 1.8; color: #aaaaaa; font-size: 11.1px; }
   .about-text p { margin-bottom: 7px; }
-  .hlg{color:#32a14e;}.hlc{color:#1a727c;}.hly{color:#8e761f;}
+  .hlg{color:#32a14e;}.hlc{color:#208b97;}.hly{color:#a98c26;}
 
   .info-tbl { width: 100%; font-size: 11px; }
   .info-tbl td { padding: 3px 0; }
@@ -233,6 +233,34 @@ a {
   @keyframes sl { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
   .blink { animation: bk 1s step-end infinite; }
+  .resume-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top:12px;
+  padding:10px;
+  border:1px solid #0a8128;
+  background:#050505;
+  color:#0a8128;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:all 0.15s ease;
+  font-family:'Share Tech Mono', monospace;
+}
+
+.resume-btn:hover{
+  background:#0a8128;
+  color:#000;
+  box-shadow:0 0 10px rgba(10,129,40,0.5);
+}
+
+.resume-icon{
+  font-family:'VT323', monospace;
+  font-size:18px;
+}
   @keyframes bk { 0%,100%{opacity:1} 50%{opacity:0} }
 </style>
 </head>
@@ -403,12 +431,15 @@ a {
             <a href="https://www.linkedin.com/in/shaivarth/" target="_blank" class="linkedin-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#24a0ad;">in</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">@shaivarth</div></div></div></a>
             <a href="https://www.instagram.com/shaivarth/" target="_blank" class="instagram-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="color:#b8216d;">IG</div><div><div class="c-lbl">Instagram</div><div class="c-val">@shaivarth</div></div></div></a>
           </div> 
+          <a href="SOC Resume.pdf" download class="resume-btn">
+            DOWNLOAD CV
+            <span class="resume-icon">↓</span>
+          </a>
           <div style="margin-top:10px;border:1px solid #141414;padding:10px;background:#060606;font-size:11px;color:#444;line-height:1.8;">
             <span style="color:#258e3f;">root@shaivarth:~$</span> echo "Open to internships &amp; collaborations."<br>
             <span style="color:#777;">&gt; Open to internships &amp; collaborations.</span><br>
-            <span style="color:#258e3f;">root@shaivarth:~$</span> <span class="blink">_</span>
           </div>
-        </div>
+        </div> 
       </div>
 
     </div><!-- end #content -->
