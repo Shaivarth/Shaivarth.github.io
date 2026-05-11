@@ -362,19 +362,35 @@ a {
       </div>
 
       <!-- PROJECTS -->
-      <div id="sec-projects" class="section">
-        <div class="sec-hdr hdr-y">PROJECTS</div>
-        <div class="proj-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#141414'">
-          <div class="proj-name" style="color:#e8e8e8;">[01] LOG ANALYSIS LAB</div>
-          <div class="proj-tags"><span class="tag" style="color:#00ff41;">LINUX LOGS</span><span class="tag" style="color:#00e5ff;">SYSLOG</span><span class="tag" style="color:#ffd600;">ANALYSIS</span></div>
-          <div class="proj-desc">Analyzed system logs (auth.log, syslog) to identify failed login attempts, suspicious activity, and basic attack patterns.</div>
-        </div>
-        <div class="proj-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#141414'">
-          <div class="proj-name" style="color:#e8e8e8;">[02] SIEM SETUP (SPLUNK)</div>
-          <div class="proj-tags"><span class="tag" style="color:#00e5ff;">Splunk</span><span class="tag" style="color:#cc88ff;">LOG MONITORING</span><span class="tag" style="color:#ff9900;">ALERTS</span></div>
-          <div class="proj-desc">Set up a local Splunk instance, ingested sample logs, and created basic queries to detect login failures and unusual activity.</div>
-        </div>
+
+<div id="sec-projects" class="section">
+  <div class="sec-hdr hdr-y">PROJECTS</div>
+<div class="panel-title" style="text-align:center;">
+  Click for GitHub REPO
+</div>
+  <a href="https://github.com/Shaivarth/SOC-X-Sentinel" target="_blank" style="text-decoration:none;">
+    <div class="proj-card"
+         onmouseover="this.style.borderColor='#888'"
+         onmouseout="this.style.borderColor='#141414'">
+
+      <div class="proj-name" style="color:#e8e8e8;">
+        [01] SOC-X SENTINEL
       </div>
+
+      <div class="proj-tags">
+        <span class="tag" style="color:#00ff41;">PYTHON</span>
+        <span class="tag" style="color:#00e5ff;">SIEM</span>
+        <span class="tag" style="color:#ffd600;">THREAT DETECTION</span>
+        <span class="tag" style="color:#d77f22;">SOC</span>
+      </div>
+
+      <div class="proj-desc">
+        Built a real-time SOC simulation platform using Python, Flask, and Linux-based telemetry pipelines to generate logs, detect suspicious activity, process alerts, and visualize cybersecurity threats through a live SIEM-style dashboard.
+      </div>
+
+    </div>
+  </a>
+</div>
 
       <!-- writeups -->
       <div id="sec-ctf" class="section">
