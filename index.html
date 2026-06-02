@@ -294,12 +294,12 @@ a {
 
 #closeModal{
   cursor:pointer;
-  color:#888;
+  color:#bebebe;
 }
 
 .modal-status{
   padding:12px;
-  color:#777;
+  color:#bebebe;
   border-bottom:1px solid #141414;
   line-height:1.8;
 }
@@ -309,23 +309,41 @@ a {
 }
 
 .form-row{
-  margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
 }
 
 .form-row label{
-  display:block;
-  margin-bottom:5px;
-  color:#888;
+    width:80px;
+    flex-shrink:0;
+    color:#bebebe;
+    margin-bottom:0;
 }
 
-.form-row input,
-.form-row textarea{
-  width:100%;
-  background:#050505;
-  border:1px solid #141414;
-  color:#c8c8b0;
-  padding:8px;
-  font-family:'Share Tech Mono', monospace;
+.form-row input{
+    flex:1;
+    background:#050505;
+    border:1px solid #141414;
+    color:#ffffff;
+    padding:8px;
+    font-family:'Share Tech Mono', monospace;
+}
+
+.textarea-row{
+    align-items:flex-start;
+}
+
+.textarea-row textarea{
+    flex:1;
+    background:#050505;
+    border:1px solid #141414;
+    color:#efefef;
+    padding:8px;
+    font-family:'Share Tech Mono', monospace;
+    min-height:120px;
+    resize:vertical;
 }
 
 .form-row textarea{
@@ -609,14 +627,13 @@ document.onkeydown = function(e) {
   <div class="modal-window">
 
     <div class="modal-header">
-      SECURE COMMUNICATION TERMINAL
+      DIRECT MESSAGE
       <span id="closeModal">✕</span>
     </div>
 
     <div class="modal-status">
-      STATUS : ENCRYPTED<br>
-      PROTOCOL : TLS<br>
-      CHANNEL : ACTIVE
+      Use this form for internship opportunities,
+      collaborations, project discussions, or general inquiries.
     </div>
 
     <form id="terminalForm">
@@ -645,9 +662,8 @@ document.onkeydown = function(e) {
         </div>
 
         <button type="submit" id="transmitBtn">
-            [ TRANSMIT ]
+            [ SEND ]
         </button>
-
     </form>
 
   </div>
