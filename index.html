@@ -262,6 +262,91 @@ a {
   font-size:18px;
 }
   @keyframes bk { 0%,100%{opacity:1} 50%{opacity:0} }
+
+#contactModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.modal-window{
+  width:500px;
+  background:#060606;
+  border:1px solid #0a8128;
+  box-shadow:0 0 20px rgba(10,129,40,0.3);
+}
+
+.modal-header{
+  background:#050505;
+  border-bottom:1px solid #0a8128;
+  color:#0a8128;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+#closeModal{
+  cursor:pointer;
+  color:#888;
+}
+
+.modal-status{
+  padding:12px;
+  color:#777;
+  border-bottom:1px solid #141414;
+  line-height:1.8;
+}
+
+#terminalForm{
+  padding:12px;
+}
+
+.form-row{
+  margin-bottom:12px;
+}
+
+.form-row label{
+  display:block;
+  margin-bottom:5px;
+  color:#888;
+}
+
+.form-row input,
+.form-row textarea{
+  width:100%;
+  background:#050505;
+  border:1px solid #141414;
+  color:#c8c8b0;
+  padding:8px;
+  font-family:'Share Tech Mono', monospace;
+}
+
+.form-row textarea{
+  height:120px;
+  resize:none;
+}
+
+#transmitBtn{
+  width:100%;
+  background:#050505;
+  border:1px solid #0a8128;
+  color:#0a8128;
+  padding:10px;
+  cursor:pointer;
+  font-family:'Share Tech Mono', monospace;
+}
+
+#transmitBtn:hover{
+  background:#0a8128;
+  color:black;
+}
 </style>
 </head>
 <body>
@@ -450,8 +535,24 @@ a {
             <span class="resume-icon">↓</span>
           </a>
           <div style="margin-top:10px;border:1px solid #141414;padding:10px;background:#060606;font-size:11px;color:#444;line-height:1.8;">
-            <span style="color:#258e3f;">root@shaivarth:~$</span> echo "Open to internships &amp; collaborations."<br>
-            <span style="color:#777;">&gt; Open to internships &amp; collaborations.</span><br>
+
+            <span style="color:#258e3f;">root@shaivarth:~$</span>
+            secure-channel --open
+
+            <button id="openChannelBtn"
+              style="
+                float:right;
+                background:#050505;
+                color:#0a8128;
+                border:1px solid #0a8128;
+                padding:4px 10px;
+                cursor:pointer;
+                font-family:'Share Tech Mono', monospace;
+                font-size:10px;
+              ">
+              OPEN
+            </button>
+
           </div>
         </div> 
       </div>
@@ -501,6 +602,137 @@ document.onkeydown = function(e) {
     return false;
   }
 }
+</script>
+
+<div id="contactModal">
+
+  <div class="modal-window">
+
+    <div class="modal-header">
+      SECURE COMMUNICATION TERMINAL
+      <span id="closeModal">✕</span>
+    </div>
+
+    <div class="modal-status">
+      STATUS : ENCRYPTED<br>
+      PROTOCOL : TLS<br>
+      CHANNEL : ACTIVE
+    </div>
+
+    <form id="terminalForm">
+
+        <div class="form-row">
+            <label>NAME :</label>
+            <input
+                type="text"
+                name="name"
+                required>
+        </div>
+
+        <div class="form-row">
+            <label>EMAIL :</label>
+            <input
+                type="email"
+                name="email"
+                required>
+        </div>
+
+        <div class="form-row textarea-row">
+            <label>MESSAGE :</label>
+            <textarea
+                name="message"
+                required></textarea>
+        </div>
+
+        <button type="submit" id="transmitBtn">
+            [ TRANSMIT ]
+        </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script>
+
+const modal =
+document.getElementById('contactModal');
+
+document
+.getElementById('openChannelBtn')
+.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+document
+.getElementById('closeModal')
+.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if(e.target === modal){
+        modal.style.display = 'none';
+    }
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init({
+    publicKey: "6rw-i38jqdIWvj_WF"
+});
+
+document
+.getElementById("terminalForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const btn =
+    document.getElementById("transmitBtn");
+
+    btn.innerHTML =
+    "[ ESTABLISHING SECURE CHANNEL... ]";
+
+    emailjs.sendForm(
+        "service_kjxek2d",
+        "template_se2i1dl",
+        this
+    )
+    .then(() => {
+
+        btn.innerHTML =
+        "[ MESSAGE DELIVERED ]";
+
+        setTimeout(() => {
+
+            document
+            .getElementById("contactModal")
+            .style.display = "none";
+
+            this.reset();
+
+            btn.innerHTML =
+            "[ TRANSMIT ]";
+
+        }, 1500);
+
+    })
+    .catch((error) => {
+
+        console.error(error);
+
+        btn.innerHTML =
+        "[ TRANSMISSION FAILED ]";
+
+    });
+
+});
+
 </script>
 </body>
 </html>
