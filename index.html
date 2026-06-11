@@ -419,6 +419,23 @@ a {
   display: block;
 }
 
+#openChannelBtn{
+  background:#050505;
+  color:#0a8128;
+  border:1px solid #0a8128;
+  padding:4px 10px;
+  cursor:pointer;
+  font-family:'Share Tech Mono', monospace;
+  font-size:10px;
+  transition:all 0.15s ease;
+}
+
+#openChannelBtn:hover{
+  background:#0a8128;
+  color:#000;
+  box-shadow:0 0 10px rgba(10,129,40,0.5);
+}
+
 </style>
 </head>
 <body>
@@ -659,22 +676,22 @@ a {
             ACCESS RESUME
             <span class="resume-icon">↓</span>
           </a>
-          <div style="margin-top:10px;border:1px solid #141414;padding:10px;background:#060606;font-size:11px;color:#444;line-height:1.8;">
+          <div style="
+            margin-top:10px;
+            border:1px solid #141414;
+            padding:10px;
+            background:#060606;
+            font-size:11px;
+            color:#444;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+          ">
 
             <span style="color:#258e3f;">root@shaivarth:~$</span>
             click to send me a message --open
 
-            <button id="openChannelBtn"
-              style="
-                float:right;
-                background:#050505;
-                color:#0a8128;
-                border:1px solid #0a8128;
-                padding:4px 10px;
-                cursor:pointer;
-                font-family:'Share Tech Mono', monospace;
-                font-size:10px;
-              ">
+            <button id="openChannelBtn">
               OPEN
             </button>
 
