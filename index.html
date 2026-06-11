@@ -11,7 +11,7 @@
   html, body {
     zoom: 1.1; 
     min-height: 100%;
-    background: #141414;
+    background: #a5b314;
     color: #c8c8b0;
     font-family: 'Share Tech Mono', monospace;
     font-size: 13px;
@@ -20,7 +20,7 @@
   /* DEAD CENTRE — works as local file too */
   #page-center {
     width: 780px;
-    margin: 24px auto 48px auto;
+    margin: 15px auto 10px auto;
     background: #0a0a0a;
     border-left: 2px solid #222;
     border-right: 2px solid #222;
@@ -262,13 +262,13 @@ a {
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .c-item { border: 1px solid #1a1a1a; padding: 8px 10px; background: #060606; display: flex; gap: 10px; align-items: center; cursor: pointer; transition: border-color 0.1s; }
   .c-icon { font-family: 'VT323', monospace; font-size: 18px; min-width: 28px; text-align: center; }
-  .c-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #333; }
-  .c-val { font-size: 11px; color: #666; }
+  .c-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #888888; }
+  .c-val { font-size: 11px; color: #c1c1c1; }
 
   .com-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
   .com-card { display: flex;overflow: visible; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #141414; padding: 10px; background: #060606; }
   .com-content { flex: 1; }
-  .com-desc { font-size: 11px; color: #666; margin-top: 5px; line-height: 1.6; }
+  .com-desc { font-size: 11px; color: #909090; margin-top: 5px; line-height: 1.6; }
   .com-img { width: 120px; height: 80px; object-fit: cover; border: 1px solid #00ff41;transition: transform 0.3s ease;}
   .com-img:hover { transform: scale(4);z-index: 5;}
 
@@ -570,7 +570,7 @@ a {
   >
 
 </div>
-
+<div id="layout">
 <div id="page-center">
 
   <!-- HEADER -->
@@ -860,10 +860,11 @@ a {
   </div><!-- end #body-row -->
 
   <!-- TICKER -->
-  <div id="ticker">
-    <span id="ticker-inner">[ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp; [ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp;</span> </div>
-  
-  </div><!-- end #page-center -->
+    <div id="ticker">
+      <span id="ticker-inner">[ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp; [ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp;</span> </div>
+    
+</div><!-- end #page-center -->
+</div>
 
 <script>
   const allNavBtns = document.querySelectorAll('.nav-btn');
