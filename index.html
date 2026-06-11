@@ -209,8 +209,27 @@ a {
   .sk-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; }
   .sk-cat { border: 1px solid #141414; padding: 15px; background: #060606; }
   .sk-cat-t { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
-  .sk-item { font-size: 11px; color: #666; padding: 2px 0; }
-  .sk-item::before { content: '+ '; color: #2a2a2a; }
+.sk-item{
+  display:inline-block;
+  padding:6px 10px;
+  margin:4px;
+  font-size:10px;
+  border:1px solid #1a1a1a;
+  background:#0a0a0a;
+  color:#888;
+  transition:all .15s ease;
+  cursor:default;
+}
+
+.sk-item::before{
+  content:'';
+}
+
+.sk-item:hover{
+  border-color:currentColor;
+  color: grey;
+  transform:translateY(-1px);
+}
 
   .bar-row { margin: 5px 0; }
   .bar-lbl { display: flex; justify-content: space-between; font-size: 10px; color: #555; margin-bottom: 2px; }
@@ -221,6 +240,8 @@ a {
   .proj-name { font-size: 13px; font-weight: bold; margin-bottom: 3px; }
   .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin: 5px 0; }
   .tag { background: #0e0e0e; border: 1px solid #1a1a1a; padding: 2px 6px; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; }
+  .tag:hover { border-color: grey; box-shadow: 0 0 2px rgba(255,255,255,0.15);
+}
   .proj-desc { font-size: 11px; color: #666; line-height: 1.6; }
 
   .ctf-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
@@ -391,32 +412,41 @@ a {
   color:black;
 }
 
-.cert-card {
-  position: relative;
+.cert-card{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:all .25s ease;
 }
 
-/* Overlay backdrop */
-.cert-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  border: 4px solid #080f0a;
-  background: #000000;
-  padding: 8 px;
-  pointer-events: auto;
+.cert-card:hover{
+  border-color:#888;
+  box-shadow:0 0 12px rgba(54,89,195,.4);
 }
 
-.cert-popup img {
-  width: 520px;
-  height: auto;
-  display: block;
+.cert-preview{
+  position:absolute;
+  inset:0;
+
+  opacity:0;
+  transform:scale(.9);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+
+  background:#000;
 }
 
-.cert-card:hover .cert-popup {
-  display: block;
+.preview-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.cert-card:hover .cert-preview{
+  opacity:1;
+  transform:scale(1);
 }
 
 #openChannelBtn{
@@ -436,9 +466,110 @@ a {
   box-shadow:0 0 10px rgba(10,129,40,0.5);
 }
 
+#certModal{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.9);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+}
+
+#modalCertImg{
+  width:70%;
+  max-width:1000px;
+  border:2px solid #3659c3;
+}
+
+#closeCert{
+  position:absolute;
+  top:20px;
+  right:30px;
+
+  color:white;
+  font-size:30px;
+  cursor:pointer;
+}
+
+.thm-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.cert-hover{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    gap: 18px;
+
+    padding:10px;
+
+    opacity:0;
+    background:#050505;
+
+    transition:.25s ease;
+}
+
+.thm-card:hover .cert-hover{
+    opacity:1;
+}
+.cert-hover img{
+    width:70%;
+    height:100%;
+
+    object-fit:cover;
+
+    border:1px solid #000000;
+}
+
+.cert-open-btn{
+    width:20%;
+
+    height:20px;
+
+    border:1px solid #4c4c4c;
+
+    background:#050505;
+
+    color:#4c4c4c;
+
+    cursor:pointer;
+
+    font-family:'Share Tech Mono', monospace;
+
+    transition:.2s;
+}
+
+.cert-open-btn:hover{
+    background:#dedede;
+    color:#000;
+}
+
+.thm-card:hover{
+    border-color:#4c4c4c;
+    box-shadow:0 0 10px rgba(150,150,150,0.25);
+}
+
 </style>
 </head>
 <body>
+
+<div id="certModal">
+
+  <span id="closeCert">✕</span>
+
+  <img
+    id="modalCertImg"
+    src=""
+  >
+
+</div>
 
 <div id="page-center">
 
@@ -504,20 +635,38 @@ a {
     <!-- CONTENT -->
     <div id="content">
 
-<!-- ABOUT -->
-<div id="sec-about" class="section visible">
-  <div class="sec-hdr hdr-g">ABOUT ME</div>
-  <div class="g2">
+      <!-- ABOUT -->
+      <div id="sec-about" class="section visible">
+        <div class="sec-hdr hdr-g">ABOUT ME</div>
+        <div class="g2">
 
-    <div class="panel" style="grid-column:1/3;">
-      <div class="panel-title">System Profile</div>
-      <div class="about-text" id="boot-screen">
-        <p id="boot-output"></p>
+          <div class="panel" style="grid-column:1/3;">
+            <div class="panel-title">Profile</div>
+              <div class="about-text">
+                <p>
+                  SOC Analyst and Blue Team enthusiast focused on threat detection,
+                  incident response, SIEM technologies, and cybersecurity automation.
+                </p>
+
+                <p>
+                  Currently building hands-on cybersecurity projects including network
+                  monitoring systems, SOC simulation platforms, and security automation tools
+                  using Python and Linux.
+                </p>
+
+                <p>
+                  Pursuing CEH v13 while developing practical experience through home labs,
+                  TryHackMe, and real-world project development.
+                </p>
+
+                <p>
+                  Interested in SOC, Cybersecurity, Network Security, and Blue Team roles.
+                </p>
+              </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-
-  </div>
-</div>
 
       <!-- SKILLS -->
       <div id="sec-skills" class="section">
@@ -526,64 +675,64 @@ a {
         <div class="sk-grid">
           <div class="sk-cat"><div class="sk-cat-t" style="color:#00e5ff;">MONITORING</div><div class="sk-item">Log Analysis (Linux / Windows Logs)</div><div class="sk-item">Network Traffic Analysis (Wireshark)</div><div class="sk-item">Alert Monitoring</div><div class="sk-item">Threat Detection</div></div>
           <div class="sk-cat"><div class="sk-cat-t" style="color:#ff4444;">INCIDENT RESPONSE</div><div class="sk-item">Alert Triage</div><div class="sk-item">Incident Investigation</div><div class="sk-item">Malware Analysis</div><div class="sk-item">IOC Analysis</div></div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#ffd600;">LANGUAGES</div><div class="sk-item">Python</div><div class="sk-item">Bash</div><div class="sk-item">SQL</div><div class="sk-item">PowerShell</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#ffd600;">LANGUAGES</div><div class="sk-item">Python</div><div class="sk-item">C++</div><div class="sk-item">SQL</div><div class="sk-item">PowerShell</div></div>
           <div class="sk-cat"><div class="sk-cat-t" style="color:#cc88ff;">PLATFORMS</div><div class="sk-item">Splunk</div><div class="sk-item">Wireshark</div><div class="sk-item">Kali Linux</div><div class="sk-item">TryHackMe</div></div>
         </div>
       </div>
 
       <!-- PROJECTS -->
 
-<div id="sec-projects" class="section">
-  <div class="sec-hdr hdr-y">PROJECTS</div>
-<div class="panel-title" style="text-align:center;">
-  Click for GitHub REPO
-</div>
-    <a href="https://github.com/Shaivarth/Arpex" target="_blank" style="text-decoration:none;">
-    <div class="proj-card"
-        onmouseover="this.style.borderColor='#888'"
-        onmouseout="this.style.borderColor='#141414'">
-
-      <div class="proj-name" style="color:#e8e8e8;">
-        [01] ARPEX
+      <div id="sec-projects" class="section">
+        <div class="sec-hdr hdr-y">PROJECTS</div>
+      <div class="panel-title" style="text-align:center;">
+        Click for GitHub REPO
       </div>
+          <a href="https://github.com/Shaivarth/Arpex" target="_blank" style="text-decoration:none;">
+          <div class="proj-card"
+              onmouseover="this.style.borderColor='#888'"
+              onmouseout="this.style.borderColor='#141414'">
 
-      <div class="proj-tags">
-        <span class="tag" style="color:#00ff41;">PYTHON</span>
-        <span class="tag" style="color:#00e5ff;">SCAPY</span>
-        <span class="tag" style="color:#ffd600;">ARP SPOOFING</span>
-        <span class="tag" style="color:#d77f22;">SQLITE</span>
-        <span class="tag" style="color:#cc44ff;">NETWORK MONITORING</span>
+            <div class="proj-name" style="color:#e8e8e8;">
+              [01] ARPEX
+            </div>
+
+            <div class="proj-tags">
+              <span class="tag" style="color:#00ff41;">PYTHON</span>
+              <span class="tag" style="color:#00e5ff;">SCAPY</span>
+              <span class="tag" style="color:#ffd600;">ARP SPOOFING</span>
+              <span class="tag" style="color:#d77f22;">SQLITE</span>
+              <span class="tag" style="color:#cc44ff;">NETWORK MONITORING</span>
+            </div>
+
+            <div class="proj-desc">
+              Advanced ARP spoofing detection and network monitoring system built with Python, Scapy, and SQLite — capable of identifying malicious ARP activity, logging network events, and providing real-time visibility.
+            </div>
+
+          </div>
+        </a>
+        <a href="https://github.com/Shaivarth/SOC-X-Sentinel" target="_blank" style="text-decoration:none;">
+          <div class="proj-card"
+              onmouseover="this.style.borderColor='#888'"
+              onmouseout="this.style.borderColor='#141414'">
+
+            <div class="proj-name" style="color:#e8e8e8;">
+              [02] SOC-X SENTINEL
+            </div>
+
+            <div class="proj-tags">
+              <span class="tag" style="color:#00ff41;">PYTHON</span>
+              <span class="tag" style="color:#00e5ff;">SIEM</span>
+              <span class="tag" style="color:#ffd600;">THREAT DETECTION</span>
+              <span class="tag" style="color:#d77f22;">SOC</span>
+            </div>
+
+            <div class="proj-desc">
+              Built a real-time SOC simulation platform using Python, Flask, and Linux-based telemetry pipelines to generate logs, detect suspicious activity, process alerts, and visualize cybersecurity threats through a live SIEM-style dashboard.
+            </div>
+
+          </div>
+        </a>
       </div>
-
-      <div class="proj-desc">
-        Advanced ARP spoofing detection and network monitoring system built with Python, Scapy, and SQLite — capable of identifying malicious ARP activity, logging network events, and providing real-time visibility.
-      </div>
-
-    </div>
-  </a>
-  <a href="https://github.com/Shaivarth/SOC-X-Sentinel" target="_blank" style="text-decoration:none;">
-    <div class="proj-card"
-         onmouseover="this.style.borderColor='#888'"
-         onmouseout="this.style.borderColor='#141414'">
-
-      <div class="proj-name" style="color:#e8e8e8;">
-        [02] SOC-X SENTINEL
-      </div>
-
-      <div class="proj-tags">
-        <span class="tag" style="color:#00ff41;">PYTHON</span>
-        <span class="tag" style="color:#00e5ff;">SIEM</span>
-        <span class="tag" style="color:#ffd600;">THREAT DETECTION</span>
-        <span class="tag" style="color:#d77f22;">SOC</span>
-      </div>
-
-      <div class="proj-desc">
-        Built a real-time SOC simulation platform using Python, Flask, and Linux-based telemetry pipelines to generate logs, detect suspicious activity, process alerts, and visualize cybersecurity threats through a live SIEM-style dashboard.
-      </div>
-
-    </div>
-  </a>
-</div>
 
       <!-- writeups -->
       <div id="sec-ctf" class="section">
@@ -607,13 +756,21 @@ a {
           <div class="cert-grid" style="margin-top:0;">
 
             <!-- THM — has certificate image -->
-            <div class="cert-card">
-              <div class="cert-badge" style="border:2px solid #3659c3;color:#3659c3;">THM</div>
+            <div class="cert-card thm-card">
+              <div class="cert-badge" style="border:2px solid #3659c3;color:#3659c3;">
+                THM
+              </div>
+
               <div class="cert-name">Pre Security</div>
               <div class="cert-org">TryHackMe</div>
               <div class="cert-st cs-e">[ EARNED ]</div>
-              <div class="cert-popup">
-                <img src="Images/THM-WZEHCYKKVI_page-0001.jpg" alt="TryHackMe Pre Security Certificate" />
+
+              <div class="cert-hover">
+                  <img src="Images/THM-WZEHCYKKVI_page-0001.jpg">
+
+                  <button class="cert-open-btn">
+                    OPEN 
+                  </button>
               </div>
             </div>
 
@@ -875,65 +1032,47 @@ document
 
 </script>
 <script>
-  const lines = [
-    { key: "IDENTITY    ", val: "Sarthak Mishra",          color: "val" },
-    { key: "ROLE        ", val: "SOC & Blue Team", color: "val" },
-    { key: "OBJECTIVE   ", val: "Understand how systems break. Make them stronger.", color: "val" },
-    { key: "SKILLS      ", val: "Log Analysis · SIEM Tools · Home Labs · Threat Detection", color: "val" },
-    { key: "CURRENT OPS ", val: "Threat Detection · Incident Response", color: "val" },
-    { key: "CERT TARGET ", val: "CEH v13  [ IN PROGRESS ]", color: "val" },
-    { key: "STATUS      ", val: "Open to Security & Networking Roles", color: "val" },
-  ];
+const certCard =
+document.querySelector(".cert-card");
 
-  const output = document.getElementById("boot-output");
-  let lineIndex = 0;
+const certModal =
+document.getElementById("certModal");
 
-  function typeLine(lineObj, callback) {
-    const lineEl = document.createElement("span");
-    lineEl.className = "line";
+const modalImg =
+document.getElementById("modalCertImg");
 
-    const prompt = document.createTextNode("> ");
-    const keyEl = document.createElement("span");
-    keyEl.className = "key";
-    keyEl.textContent = lineObj.key + ": ";
+document
+.querySelector(".cert-open-btn")
+.addEventListener("click",(e)=>{
 
-    const valEl = document.createElement("span");
-    valEl.className = lineObj.color;
+    e.stopPropagation();
 
-    const cursor = document.createElement("span");
-    cursor.className = "cursor";
+    modalImg.src =
+    "Images/THM-WZEHCYKKVI_page-0001.jpg";
 
-    lineEl.appendChild(prompt);
-    lineEl.appendChild(keyEl);
-    lineEl.appendChild(valEl);
-    lineEl.appendChild(cursor);
-    output.appendChild(lineEl);
+    certModal.style.display =
+    "flex";
+});
 
-    let i = 0;
-    const full = lineObj.val;
-    const interval = setInterval(() => {
-      if (i < full.length) {
-        valEl.textContent += full[i];
-        i++;
-      } else {
-        clearInterval(interval);
-        cursor.remove();
-        callback();
-      }
-    }, 28);
-  }
+document
+.getElementById("closeCert")
+.addEventListener("click",()=>{
 
-  function runBoot() {
-    if (lineIndex < lines.length) {
-      typeLine(lines[lineIndex], () => {
-        lineIndex++;
-        setTimeout(runBoot, 120);
-      });
+    certModal.style.display =
+    "none";
+});
+
+certModal.addEventListener("click",(e)=>{
+
+    if(e.target===certModal){
+        certModal.style.display =
+        "none";
     }
-  }
-
-  window.addEventListener("load", () => setTimeout(runBoot, 400));
+});
 </script>
+
+</body>
+
 </body>
 </html>
 
