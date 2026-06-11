@@ -11,7 +11,16 @@
   html, body {
     zoom: 1.1; 
     min-height: 100%;
-    background: #a5b314;
+        background:
+        linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.65)
+        ),
+        url('Images/Hubble\ Only.png');
+
+    background-size:cover;
+    background-position:70% 10%;
+    background-attachment:fixed;
     color: #c8c8b0;
     font-family: 'Share Tech Mono', monospace;
     font-size: 13px;
@@ -20,7 +29,7 @@
   /* DEAD CENTRE — works as local file too */
   #page-center {
     width: 780px;
-    margin: 15px auto 10px auto;
+    margin: 17px auto 10px auto;
     background: #0a0a0a;
     border-left: 2px solid #222;
     border-right: 2px solid #222;
