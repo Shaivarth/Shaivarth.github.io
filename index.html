@@ -567,6 +567,133 @@ a {
     box-shadow:0 0 10px rgba(150,150,150,0.25);
 }
 
+/* WRITEUP MODAL */
+.wu-open-btn {
+  cursor: pointer;
+  color: #a9a9a9;
+  letter-spacing: 1px;
+  font-size: 10px;
+  border: 1px solid #000000;
+  padding: 1px 7px;
+  transition: all 0.15s ease;
+}
+.wu-open-btn:hover {
+  background: #a5b314; 
+  color: #000;
+}
+
+#writeupModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.120);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 10px 10px;
+}
+
+.wu-modal-box {
+  width: 100%;
+  max-width: 820px;
+  min-height: 220px;
+  background: #141414;
+  border: 1px solid #1b1b1b;
+  box-shadow: 0 0 24px rgba(45, 45, 45, 0.15);
+  margin: auto;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: #000000;
+} 
+
+.wu-modal-header {
+  background: #0a0404;
+  border-bottom: 1px solid #494949;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+#closeWriteup {
+  cursor: pointer;
+  color: #bebebe;
+  font-size: 16px;
+}
+#closeWriteup:hover { color: #fff; }
+
+.wu-modal-body {
+  padding: 20px 22px;
+  line-height: 1.8;
+}
+
+.wu-modal-body h1 {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  color: #3a8090;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.wu-modal-body .wu-meta {
+  font-size: 10px;
+  color: #555;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #141414;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.wu-modal-body h2 {
+  font-size: 11px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+}
+
+.wu-modal-body p {
+  color: #999;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.wu-modal-body pre {
+  background: #030303;
+  border: 1px solid #1a1a1a;
+  border-left: 3px solid #ffffff;
+  padding: 12px;
+  font-size: 11px;
+  color: #dcdcdc;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.wu-modal-body img {
+  max-width: 100%;
+  border: 1px solid #000000;
+  margin: 12px 0;
+  display: block;
+}
+
+.wu-tag {
+  display: inline-block;
+  background: #0a0404;
+  border: 1px solid #0a0404;
+  color: #c2c1c1;
+  font-size: 9px;
+  padding: 1px 7px;
+  letter-spacing: 1px;
+  margin-right: 5px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
 </style>
 </head>
 <body>
@@ -752,11 +879,10 @@ a {
           <div class="panel-title">Completed Challenges</div>
           <table class="ctf-tbl">
             <tr><th>#</th><th>Challenge</th><th>Platform</th><th>Category</th><th>Link</th></tr>
-            <tr><td>01</td><td style="color:#ccd4cf;cursor:pointer;">Blue Team Fundamentals</td><td>TryHackMe</td><td>SOC / Defensive Security</td><td><span>OPEN</span></td></tr>
-            <tr><td>02</td><td style="color:#ccd4cf;cursor:pointer;">Alert Triage & Reporting</td><td>TryHackMe</td><td>Incident Response</td><td><span>OPEN</span></td></tr>
-            <tr><td>03</td><td style="color:#ccd4cf;cursor:pointer;">SIEM & EDR</td><td>TryHackMe</td><td>Security Tools</td><td><span>OPEN</span></td></tr>
-            <tr><td>04</td><td style="color:#ccd4cf;cursor:pointer;">Network & Attack Analysis</td><td>TryHackMe</td><td>Threat Analysis</td><td><span>OPEN</span></td></tr>
-            <tr><td>05</td><td style="color:#ccd4cf;cursor:pointer;">SOC Level 1 Path</td><td>TryHackMe</td><td>SOC Training</td><td><span>OPEN</span></td></tr>
+            <tr><td>01</td><td style="color:#ccd4cf;">Linux Terminal Navigation & File Management</td><td>Personal</td><td>Linux Fundamentals</td><td><span class="wu-open-btn" onclick="openWriteup('wu01')">OPEN</span></td></tr>            <tr><td>02</td><td style="color:#ccd4cf;">Alert Triage & Reporting</td><td>TryHackMe</td><td>Incident Response</td><td><span class="wu-open-btn" onclick="openWriteup('wu02')">OPEN</span></td></tr>
+            <tr><td>03</td><td style="color:#ccd4cf;">SIEM & EDR</td><td>TryHackMe</td><td>Security Tools</td><td><span class="wu-open-btn" onclick="openWriteup('wu03')">OPEN</span></td></tr>
+            <tr><td>04</td><td style="color:#ccd4cf;">Network & Attack Analysis</td><td>TryHackMe</td><td>Threat Analysis</td><td><span class="wu-open-btn" onclick="openWriteup('wu04')">OPEN</span></td></tr>
+            <tr><td>05</td><td style="color:#ccd4cf;">SOC Level 1 Path</td><td>TryHackMe</td><td>SOC Training</td><td><span class="wu-open-btn" onclick="openWriteup('wu05')">OPEN</span></td></tr>
           </table>
         </div>
       </div>
@@ -875,6 +1001,16 @@ a {
       <span id="ticker-inner">[ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp; [ Chanakya Niti says: Always Monitor the Logs ] &nbsp;|&nbsp; [ Kautilya would’ve built a SIEM by now ] &nbsp;|&nbsp; [ Not all hackers are Rakshasas — some guard the kingdom ] &nbsp;|&nbsp; [ Detecting threats like a modern-day Ashoka before Kalinga ] &nbsp;|&nbsp; [ Logs don’t lie, only attackers do ] &nbsp;|&nbsp; [ Authorized access only — not even Ravana gets root ] &nbsp;|&nbsp;</span> </div>
     
 </div><!-- end #page-center -->
+<!-- WRITEUP MODAL -->
+<div id="writeupModal">
+  <div class="wu-modal-box">
+    <div class="wu-modal-header">
+      <span>WRITE-UP VIEWER</span>
+      <span id="closeWriteup">✕</span>
+    </div>
+    <div class="wu-modal-body" id="writeupContent"></div>
+  </div>
+</div>
 </div>
 
 <script>
@@ -1082,9 +1218,150 @@ certModal.addEventListener("click",(e)=>{
     }
 });
 </script>
+<script>
+const writeups = {
+  wu01: `
+    <h1>Linux Terminal Navigation & File Management</h1>
+    <div class="wu-meta">DATE: 2026-04-29 &nbsp;·&nbsp; CATEGORY: Linux </div>
+    <span class="wu-tag">Linux</span><span class="wu-tag">Navigation</span><span class="wu-tag">File Management</span>
 
-</body>
+    <h2>// Overview</h2>
+    <p>These commands are the foundation of working efficiently in Linux and are used extensively by developers and cybersecurity practitioners.</p>
 
+    <h2>// pwd</h2>
+    <p>Stands for <strong style="color:#3a8090;">Print Working Directory</strong>. Displays the absolute path of the directory I am currently working in. Useful whenever I want to verify my current location within the filesystem.</p>
+    <pre>pwd</pre>
+    <pre>/Users/shaivarth/developer</pre>
+
+    <h2>// ls</h2>
+    <p>Stands for <strong style="color:#3a8090;">List</strong>. Displays all files and folders present in the current directory. One of the most frequently used commands for exploring directory contents.</p>
+    <pre>ls</pre>
+    <p>For more detail, <code style="color:#3a8090;">ls -la</code> adds the <code style="color:#3a8090;">-l</code> flag (permissions, ownership, size, timestamps) and <code style="color:#3a8090;">-a</code> flag (shows hidden files beginning with <code style="color:#3a8090;">.</code>).</p>
+    <pre>ls -la</pre>
+
+    <h2>// cd</h2>
+    <p>Stands for <strong style="color:#3a8090;">Change Directory</strong>. Used to move between directories in the filesystem.</p>
+    <pre>cd backend   # move into a folder
+cd ..        # move to parent directory
+cd ~         # jump to home directory</pre>
+
+    <h2>// mkdir</h2>
+    <p>Stands for <strong style="color:#3a8090;">Make Directory</strong>. Creates a new folder in the current location.</p>
+    <pre>mkdir linux-notes</pre>
+
+    <h2>// touch</h2>
+    <p>Commonly used to create an empty file. The following command creates a new Markdown file named <code style="color:#3a8090;">notes.md</code> in the current directory.</p>
+    <pre>touch notes.md</pre>
+
+    <h2>// Key Symbols</h2>
+    <pre>~   →  home directory
+.   →  current directory
+..  →  parent directory
+/   →  root directory</pre>
+  `,
+
+  wu02: `
+      <h1>SOC L1 Alert Reporting</h1>
+      <div class="wu-meta">DATE: 2026-04-29 &nbsp;·&nbsp; PLATFORM: TryHackMe &nbsp;·&nbsp; CATEGORY: Incident Response</div>
+      <span class="wu-tag">SOC</span><span class="wu-tag">Alert Triage</span><span class="wu-tag">Escalation</span><span class="wu-tag">Incident Response</span>
+
+      <h2>// Overview</h2>
+      <p>This room covers what happens after alert triage — how to properly report, escalate, and communicate about high-risk SOC alerts. Three core skills every L1 analyst needs: alert reporting, escalation, and communication.</p>
+
+      <h2>// The Alert Funnel</h2>
+      <p>After triaging an alert, L1 analysts follow a three-step process before closing or handing off:</p>
+      <pre>1. Reporting   →  Document findings, evidence, and conclusions
+  2. Escalation  →  Pass confirmed threats to L2 for deeper analysis
+  3. Communication →  Coordinate with IT, HR, or management as needed</pre>
+
+      <h2>// Writing Good Reports — The Five Ws</h2>
+      <p>A structured report answers five questions that give L2 everything they need to pick up instantly:</p>
+      <pre>Who   →  Which user, service account, or process was involved?
+  What  →  Exact actions — commands run, files downloaded, emails clicked
+  When  →  Precise start and end timestamps
+  Where →  Host, IP, cloud instance, or URL involved
+  Why   →  Your reasoning — why True Positive or False Positive?</pre>
+
+      <h2>// Phishing Alert — Practical Example</h2>
+      <p>Alert: <strong style="color:#3a8090;">Email marked as Phishing after Delivery</strong></p>
+      <p>Sender appeared as <code style="color:#3a8090;">support@microsoft.com</code> — but both SPF and DKIM checks failed, indicating spoofing. The email contained urgency-based social engineering triggers and a suspicious archive attachment.</p>
+      <pre>SPF  check: FAIL  →  sender not authorised for microsoft.com domain
+  DKIM check: FAIL  →  email signature invalid
+  Attachment: .zip archive  →  red flag
+  Triggers: "urgent notice", "price increase"  →  social engineering</pre>
+      <p>Flag earned: <code style="color:#3a8090;">THM{nice_attempt_faking_microsoft_support}</code></p>
+
+      <h2>// When to Escalate to L2</h2>
+      <pre>→  Alert indicates a major cyberattack or requires DFIR
+  →  Remediation needed (malware removal, host isolation, password reset)
+  →  External communication required (customers, law enforcement)
+  →  You don't fully understand the alert — always better to ask</pre>
+      <p>Escalation process: write report → set alert to In Progress → assign to L2 on shift → ping them in chat or in person.</p>
+
+      <h2>// Real Escalation — Webshell via Exchange</h2>
+      <p>Alert: <strong style="color:#3a8090;">Suspicious process execution on DMZ-MSEXCHANGE-2013</strong></p>
+      <pre>Parent process : C:\Users\Public\revshell.exe   ← reverse shell, public folder drop
+  Source process : cmd.exe
+  Account        : NT AUTHORITY\SYSTEM             ← full privilege escalation
+  Host           : DMZ-MSEXCHANGE-2013 (internet-facing mail server)</pre>
+      <p>Commands observed — classic AD enumeration post-foothold:</p>
+      <pre>whoami
+  net user
+  Get-ADUser
+  nltest /dclist:tryhackme.thm
+  net group "Domain Admins" /domain</pre>
+      <p>Likely attack chain: IIS exploit → webshell/revshell uploaded → cmd.exe spawned as SYSTEM → domain enumeration for lateral movement.</p>
+      <p>Flag earned: <code style="color:#3a8090;">THM{looks_like_webshell_via_old_exchange}</code></p>
+
+      <h2>// Communication — Edge Cases</h2>
+      <pre>L2 unavailable for 30min  →  call directly → try L3 → then manager
+  Compromised Slack/Teams   →  never use the breached channel, call instead
+  Alert overload            →  prioritise by severity, inform L2 immediately
+  Missed attack (days later) →  contact L2 immediately, don't wait
+  SIEM logs not parsing     →  investigate what you can, report to L2/SOC engineer</pre>
+
+      <h2>// Key Answers</h2>
+      <pre>Alert escalation process  →  alert escalation
+  Alert documentation       →  alert reporting
+  L2 on shift               →  E.Fleming
+  Critical threat — contact manager first?  →  Nay
+  Missed attack — contact L2 immediately?   →  Yea</pre>
+
+      <h2>// Takeaways</h2>
+      <p>Reporting preserves evidence and context. Escalation ensures real threats get remediated. Communication keeps the whole org aligned. These three together turn raw alerts into actionable incident response — the core loop of SOC L1 work.</p>
+    `,
+
+  wu03: `<h1>SIEM & EDR</h1><div class="wu-meta">PLATFORM: TryHackMe &nbsp;·&nbsp; CATEGORY: Security Tools</div><p>Writeup coming soon.</p>`,
+  wu04: `<h1>Network & Attack Analysis</h1><div class="wu-meta">PLATFORM: TryHackMe &nbsp;·&nbsp; CATEGORY: Threat Analysis</div><p>Writeup coming soon.</p>`,
+  wu05: `<h1>SOC Level 1 Path</h1><div class="wu-meta">PLATFORM: TryHackMe &nbsp;·&nbsp; CATEGORY: SOC Training</div><p>Writeup coming soon.</p>`
+};
+
+function openWriteup(id) {
+  document.getElementById('writeupContent').innerHTML = writeups[id] || '<p>Content not found.</p>';
+  const modal = document.getElementById('writeupModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('closeWriteup').addEventListener('click', () => {
+  document.getElementById('writeupModal').style.display = 'none';
+  document.body.style.overflow = '';
+});
+
+document.getElementById('writeupModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('writeupModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
+</script>
 </body>
 </html>
 
