@@ -268,7 +268,7 @@ a {
   .cert-name { font-size: 11px; color: #cdcdcd; margin-bottom: 3px; }
   .cert-org { font-size: 10px; color: #767676; }
   .cert-st { margin-top: 5px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
-  .cs-e{color:#0d822a;}.cs-p{color:#ffd600;}.cs-n{color:#333;}
+  .cs-e{color:#0d822a;}.cs-p{color:#ffd600;}.cs-n{color:#404040;}
 
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .c-item { border: 1px solid #1a1a1a; padding: 8px 10px; background: #060606; display: flex; gap: 10px; align-items: center; cursor: pointer; transition: border-color 0.1s; }
@@ -858,10 +858,11 @@ a {
 
       <div id="sec-projects" class="section">
         <div class="sec-hdr hdr-y">PROJECTS</div>
-      <div class="panel-title" style="text-align:center;">
-        Click for GitHub REPO
-      </div>
-        <div style="max-height: 210px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #1a1a1a #0a0a0a;">
+        <div class="panel-title" style="text-align:center;">
+          Click on the project card to view its GitHub Repository.
+        </div>
+        <div style="position:relative;">
+          <div class="proj-scroll" style="max-height: 210px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #1a1a1a #0a0a0a;">
           <a href="https://github.com/Shaivarth/Arpex" target="_blank" style="text-decoration:none;">
             <div class="proj-card"
                 onmouseover="this.style.borderColor='#888'"
@@ -893,7 +894,6 @@ a {
               <div class="proj-name" style="color:#e8e8e8;">
                 [02] XENTINEL
               </div>
-
               <div class="proj-tags">
                 <span class="tag" style="color:#00ff41;">PYTHON</span>
                 <span class="tag" style="color:#00e5ff;">SIEM</span>
@@ -906,7 +906,7 @@ a {
               </div>
             </div>
           </a>
-          <a href="https://github.com/Shaivarth/Sarnga" target="_blank" style="text-decoration:none;">
+          <a href="https://github.com/Shaivarth/Shaarnga" target="_blank" style="text-decoration:none;">
             <div class="proj-card"
                 onmouseover="this.style.borderColor='#888'"
                 onmouseout="this.style.borderColor='#141414'">
@@ -923,8 +923,19 @@ a {
               </div>
             </div>
           </a>
-        </div>  
-      </div>
+        </div> 
+        <div style="
+            position:absolute;
+            bottom:0; left:0; right:0;
+            height:48px;
+            color: #494949;
+            text-align: center;
+            font-size: xx-small;
+            background:linear-gradient(transparent, #0a0a0a);
+            pointer-events:none;"><br><br><br><br><br>Scroll Down
+        </div>
+      </div> 
+    </div>
 
       <!-- writeups -->
       <div id="sec-ctf" class="section">
@@ -976,7 +987,6 @@ a {
             </div>
 
             <!-- SC-200 -->
-            <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/" target="_blank" style="text-decoration:none;">
               <div class="cert-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'">
                 <div class="cert-badge" style="border:none;background:transparent;">
                   <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" style="width:50px;height:50px;object-fit:contain;">
@@ -985,7 +995,6 @@ a {
                 <div class="cert-org">Microsoft — SC-200</div>
                 <div class="cert-st cs-n">[ Planned ]</div>
               </div>
-            </a>
 
             <!-- CySA+ -->
             <div class="cert-card">
