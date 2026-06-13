@@ -268,7 +268,7 @@ a {
   .cert-name { font-size: 11px; color: #cdcdcd; margin-bottom: 3px; }
   .cert-org { font-size: 10px; color: #767676; }
   .cert-st { margin-top: 5px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
-  .cs-e{color:#00ff41;}.cs-p{color:#ffd600;}.cs-n{color:#333;}
+  .cs-e{color:#0d822a;}.cs-p{color:#ffd600;}.cs-n{color:#333;}
 
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .c-item { border: 1px solid #1a1a1a; padding: 8px 10px; background: #060606; display: flex; gap: 10px; align-items: center; cursor: pointer; transition: border-color 0.1s; }
@@ -806,14 +806,14 @@ a {
                     height: 80px;
                     object-fit: cover;
                     object-position: center top;
-                    border: 1px solid #2a2a2a;
+                    border: 1px solid #000000;
                     filter: grayscale(100%);
                     display: block;
-                    cursor: pointer;
+                    cursor: pointer; 
                   ">
                 <div style="
                   text-align:center;
-                  font-size:8px;
+                  font-size:7px;
                   letter-spacing:1px;
                   color:#5d5d5d;
                   margin-top:4px; 
@@ -930,8 +930,8 @@ a {
 
             <!-- THM — has certificate image -->
             <div class="cert-card thm-card">
-              <div class="cert-badge" style="border:2px solid #3659c3;color:#3659c3;">
-                THM
+              <div class="cert-badge" style="border:none;background:transparent;">
+                <img src="https://assets.tryhackme.com/img/favicon.png" style="width:40px;height:40px;object-fit:contain;">
               </div>
 
               <div class="cert-name">Pre Security</div>
@@ -939,7 +939,7 @@ a {
               <div class="cert-st cs-e">[ EARNED ]</div>
 
               <div class="cert-hover">
-                  <img src="Images/THM-WZEHCYKKVI_page-0001.jpg">
+                  <img src="Images/THM-WZEHCYKKVI_page-0001.webp">
 
                   <button class="cert-open-btn">
                     OPEN 
@@ -947,29 +947,39 @@ a {
               </div>
             </div>
 
-            <!-- CEHv13 — no image, no popup -->
+            <!-- CEHv13  -->
             <div class="cert-card">
-              <div class="cert-badge" style="border:2px solid #c62424;color:#c62424;">CEHv13</div>
+              <div class="cert-badge" style="border:none;background:transparent;">
+                <img src="https://www.webasha.com/uploads/course/images/671781052f5751729593605.cehv13.jpg" style="width:90px;height:90px;object-fit:contain;border-radius: 30%;">
+              </div>
               <div class="cert-name">Certified Ethical Hacker v13</div>
               <div class="cert-org">EC-Council</div>
               <div class="cert-st cs-p">[ In Progress ]</div>
             </div>
 
-            <!-- CySA+ — no image, no popup -->
+            <!-- SC-200 -->
+            <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/" target="_blank" style="text-decoration:none;">
+              <div class="cert-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'">
+                <div class="cert-badge" style="border:none;background:transparent;">
+                  <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" style="width:50px;height:50px;object-fit:contain;">
+                </div>
+                <div class="cert-name">Security Operations Analyst</div>
+                <div class="cert-org">Microsoft — SC-200</div>
+                <div class="cert-st cs-n">[ Planned ]</div>
+              </div>
+            </a>
+
+            <!-- CySA+ -->
             <div class="cert-card">
-              <div class="cert-badge" style="border:2px solid #777777;color:#777777;">CySA+</div>
+              <div class="cert-badge" style="border:none;background:transparent;">
+                <img src="https://acgcyberacademy.fr/wp-content/uploads/2024/07/Plus_CySA_Certification-1.png" style="width:70px;height:70px;object-fit:contain;">
+              </div>
               <div class="cert-name">CompTIA Cybersecurity Analyst</div>
               <div class="cert-org">CompTIA</div>
               <div class="cert-st cs-n">[ Planned ]</div>
             </div>
 
-            <!-- BTL1 — no image, no popup -->
-            <div class="cert-card">
-              <div class="cert-badge" style="border:2px solid #777777;color:#777777;">BTL1</div>
-              <div class="cert-name">Blue Team Level 1</div>
-              <div class="cert-org">Security Blue Team</div>
-              <div class="cert-st cs-n">[ Planned ]</div>
-            </div>
+
 
           </div>
       </div>
