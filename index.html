@@ -139,8 +139,8 @@ a {
   .nav-btn {
     border: none;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    padding: 7px 14px;
+    font-size: 10px;
+    padding: 7px 12px;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -280,7 +280,7 @@ a {
   .com-card { display: flex;overflow: visible; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #141414; padding: 10px; background: #060606; }
   .com-content { flex: 1; }
   .com-desc { font-size: 11px; color: #909090; margin-top: 5px; line-height: 1.6; }
-  .com-img { width: 120px; height: 80px; object-fit: cover; border: 1px solid #00ff41;transition: transform 0.3s ease;}
+  .com-img { width: 120px; height: 80px; object-fit: cover; border: 0.7px solid #e1e1e1;transition: transform 0.3s ease;}
   .com-img:hover { transform: scale(4);z-index: 5;}
 
 
@@ -694,6 +694,142 @@ a {
   text-transform: uppercase;
 }
 
+/* EDUCATION NAV + SIDEBAR */
+.nb-edu { background:#0a0f1a; color:#3a6a9a; border-top:1px solid #3a6a9a; border-left:1px solid #3a6a9a; border-right:1px solid #3a6a9a; }
+.nb-edu:hover,.nb-edu.active{background:#2a5a8a;color:#000;border-bottom:3px solid #003366;}
+.sl-edu{color:#24506a;}.sl-edu::before{color:#5599cc;}.sl-edu:hover,.sl-edu.active{color:#5599cc;background:#091320;border-left-color:#5599cc;}
+.hdr-edu{background:#151515;color:#a3a3a3;border:1px solid #a3a3a3;}
+
+/* EDUCATION ACCORDION */
+.edu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 8px;
+  border: 1px solid #1e1e1e;
+  background: #070707;
+  color: #b0b0b0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+.edu-toggle:hover { border-color: #5599cc; color: #5599cc; background: #08111a; }
+.edu-toggle.open { border-color: #5599cc; color: #5599cc; background: #08111a; border-bottom: none; margin-bottom: 0; }
+.edu-toggle-left { display: flex; align-items: center; gap: 12px; }
+.edu-icon { font-family: 'VT323', monospace; font-size: 20px; color: #5599cc; min-width: 24px; }
+.edu-arrow { font-size: 14px; transition: transform 0.2s ease; }
+.edu-toggle.open .edu-arrow { transform: rotate(90deg); }
+
+.edu-body {
+  display: none;
+  border: 1px solid #5599cc;
+  border-top: none;
+  background: #060c14;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: #aaaaaa;
+}
+.edu-body.open { display: block; }
+
+.edu-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid #0f1e2a; }
+.edu-row:last-child { border-bottom: none; }
+.edu-label { color: #4a6a80; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; min-width: 100px; }
+.edu-val { color: #c8c8c8; text-align: right; font-size: 11px; }
+.edu-val.highlight { color: #5599cc; }
+.edu-val.green { color: #32a14e; }
+.edu-val.yellow { color: #a98c26; }
+
+.edu-name { font-family: 'VT323', monospace; font-size: 19px; color: #8abcdc; letter-spacing: 2px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #0f1e2a; }
+.edu-subjects { margin-top: 10px; }
+.edu-subjects .panel-title { font-size: 9px; letter-spacing: 2px; color: #4a6a80; text-transform: uppercase; margin-bottom: 6px; }
+.edu-sub-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.edu-tag { background: #06101a; border: 1px solid #1a2a3a; padding: 3px 8px; font-size: 9px; letter-spacing: 1px; color: #6a8aa0; text-transform: uppercase; }
+
+/* EDU CARDS */
+.edu-card {
+  flex: 1;
+  border: 1px solid #202020;
+  background: #000000;
+  padding: 18px 16px;
+  cursor: pointer;
+  position: relative;
+  transition: none;
+  overflow: hidden;
+}
+.edu-card:hover {
+  border-color: #5b5b5b;
+  transform: translateY(-2px);
+}
+.edu-card-icon {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  color: #272727;
+  margin-bottom: 10px;
+}
+.edu-card-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #444444;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.edu-card-title {
+  font-size: 13px;
+  color: #c7c7c7;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+.edu-card-sub {
+  font-size: 10px;
+  color: #6a6a6a;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.edu-card-meta {
+  font-size: 9px;
+  color: #424242;
+  letter-spacing: 1px;
+}
+.edu-card-arrow {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  font-size: 12px;
+  color: #151515;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.edu-card:hover .edu-card-arrow {
+  color: #303030;
+  transform: translateX(3px);
+}
+
+/* EDU DETAIL */
+.edu-row { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px solid #232323; }
+.edu-row:last-child { border-bottom: none; }
+.edu-label { color: #888; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; min-width: 110px; }
+.edu-val { color: #c8c8c8; text-align: right; font-size: 11px; }
+.edu-val.highlight { color: #c8c8c8; }
+.edu-val.green { color: #32a14e; }
+.edu-name {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 15px;
+  color: #c8c8c8;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #0f1e2a;
+}
+.edu-sub-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.edu-tag { background: #1d1d1d; border: 1px solid #151515; padding: 3px 8px; font-size: 9px; letter-spacing: 1px; color: #b9b9b9; text-transform: uppercase; }
+.edu-subjects-title { font-size: 9px; letter-spacing: 2px; color: #5d5d5d; text-transform: uppercase; margin: 12px 0 6px; }
 </style>
 </head>
 <body>
@@ -720,7 +856,7 @@ a {
 ">
   <span onclick="document.getElementById('photoModal').style.display='none'"
     style="position:absolute;top:20px;right:30px;color:white;font-size:10px;cursor:pointer;">✕</span>
-  <img src="Images/NewLinkedinDP.webp" style="max-height:50vh;max-width:35vw;filter: grayscale(100%);border-radius:50%;border:2px solid #2a2a2a;">
+  <img src="Images/NewLinkedinDP.webp" style="max-height:50vh;max-width:35vw;border-radius:50%;border:2px solid #2a2a2a;">
 </div>
 
 <div id="layout">
@@ -757,6 +893,7 @@ a {
     <button class="nav-btn nb-y" onclick="nav('projects',this)">Projects</button>
     <button class="nav-btn nb-r" onclick="nav('ctf',this)">Write-ups</button>
     <button class="nav-btn nb-p" onclick="nav('certs',this)">Certifications</button>
+    <button class="nav-btn nb-edu" onclick="nav('edu',this)">Academics</button>
     <button class="nav-btn nb-com" onclick="nav('comp',this)">Competitions</button>
     <button class="nav-btn nb-o" onclick="nav('contact',this)">Contact Me</button>
   </div>
@@ -772,6 +909,7 @@ a {
       <div class="sb-link sl-y" onclick="nav('projects',null,this)">Projects</div>
       <div class="sb-link sl-r" onclick="nav('ctf',null,this)">Write-ups</div>
       <div class="sb-link sl-p" onclick="nav('certs',null,this)">Certifications</div>
+      <div class="sb-link sl-edu" onclick="nav('edu',null,this)">Academics</div>
       <div class="sb-link sl-com" onclick="nav('comp',null,this)">Competitions</div>
       <div class="sb-link sl-o" onclick="nav('contact',null,this)">Contact Me</div>
 
@@ -804,10 +942,10 @@ a {
                   style="
                     width: 80px;
                     height: 80px;
+                    filter: saturate(0.8) contrast(0.9);
                     object-fit: cover;
                     object-position: center top;
                     border: 1px solid #000000;
-                    filter: grayscale(100%);
                     display: block;
                     cursor: pointer; 
                   ">
@@ -1011,6 +1149,70 @@ a {
           </div>
       </div>
 
+      <!-- EDUCATION -->
+      <div id="sec-edu" class="section">
+        <div class="sec-hdr hdr-edu">ACADEMICS</div>
+        <div class="panel" style="overflow:hidden; position:relative; min-height:260px; max-height:340px;">
+          <div class="panel-title">Academic Background</div>
+
+          <!-- CARDS VIEW -->
+          <div id="edu-cards" style="display:flex; gap:10px; transition: opacity 0.35s ease, transform 0.35s ease;">
+
+            <!-- College Card -->
+            <div class="edu-card" onclick="openEduDetail('college')">
+              <div class="edu-card-label">Undergraduate</div>
+              <div class="edu-card-title">Bachelor of Technology [CSE]</div>
+              <div class="edu-card-sub">Vellore Institute of Technology, Bhopal</div>
+              <img src="Images/college.webp" style="width:100%; height:110px; object-fit:cover; border:1px solid #2a2a2a; display:block; margin:10px 0;">
+              <div class="edu-card-meta">2023 — 2027</div>
+              <div class="edu-card-arrow">&#x25B6;</div>
+            </div>
+
+            <!-- School Card -->
+            <div class="edu-card" onclick="openEduDetail('school')">
+              <div class="edu-card-label">Secondary Education</div>
+              <div class="edu-card-title">Class XII &amp; X</div>
+              <div class="edu-card-sub">Rani Laxmibai Public School, Jhansi</div>
+              <img src="Images/school.webp" style="filter: brightness(1.1);width:100%; height:110px; object-fit:cover; border:1px solid #2a2a2a; display:block; margin:10px 0;">
+              <div class="edu-card-meta">Passed 2022</div> 
+              <div class="edu-card-arrow">&#x25B6;</div>
+            </div> 
+
+          </div>
+
+          <!-- DETAIL VIEW -->
+          <div id="edu-detail" style="
+            position:absolute; inset:0; padding:10px 12px;
+            background:#0a0a0a;
+            opacity:0; pointer-events:none;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #262626 #070707;
+          ">
+            <!-- Back button -->
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+              <button id="edu-back-btn" onclick="closeEduDetail()" style="
+                background:#050505; border:1px solid #272727; color:#bcbcbc;
+                font-family:'Share Tech Mono',monospace; font-size:10px;
+                padding:5px 12px; cursor:pointer; letter-spacing:1.5px;
+                transition:all 0.15s ease; display:flex; align-items:center; gap:6px;
+              " onmouseover="this.style.background='#000000';this.style.color='#ffffff';"
+                onmouseout="this.style.background='#000000';this.style.color='#888';">
+                &#x25C4; BACK 
+              </button>
+              <span id="edu-detail-breadcrumb" style="font-size:9px; color:#7b7b7b; letter-spacing:2px; text-transform:uppercase;"></span>
+            </div>
+
+            <!-- Detail content injected here -->
+            <div id="edu-detail-content"></div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
       <!-- COMPETITIONS -->
       <div id="sec-comp" class="section">
         <div class="sec-hdr hdr-com">COMPETITIONS</div>
@@ -1087,10 +1289,97 @@ a {
 </div>
 
 <script>
+  function toggleEdu(id, btn) {
+  const body = document.getElementById(id);
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.edu-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.edu-toggle').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+
+  const eduData = {
+    college: {
+      breadcrumb: 'Undergraduate | B.Tech CSE',
+      html: `
+        <div class="edu-name">Vellore Institute of Technology, Bhopal</div>
+        <div class="edu-row"><span class="edu-label">Degree</span><span class="edu-val highlight">B.Tech · Computer Science &amp; Engineering</span></div>
+        <div class="edu-row"><span class="edu-label">Duration</span><span class="edu-val">2023 — 2027</span></div>
+        <div class="edu-row"><span class="edu-label">Status</span><span class="edu-val green">Final Year</span></div>
+        <div class="edu-row"><span class="edu-label">CGPA</span><span class="edu-val highlight">7.6 / 10</span></div>
+        <div class="edu-row"><span class="edu-label">University</span><span class="edu-val">Vellore Institute of Technology - VIT</span></div>
+        <div class="edu-subjects-title">Key Subjects</div>
+        <div class="edu-sub-tags">
+          <span class="edu-tag">Network Security</span>
+          <span class="edu-tag">OOPs</span>
+          <span class="edu-tag">Python</span>
+          <span class="edu-tag">OS</span>
+          <span class="edu-tag">Web Development</span> 
+          <span class="edu-tag">DBMS</span>
+          <span class="edu-tag">DSA</span>
+          <span class="edu-tag">Networking</span> 
+        </div> 
+      `
+    },
+    school: {
+      breadcrumb: 'Secondary Education | ICSE',
+      html: `
+        <div class="edu-name">Rani Laxmibai Public School, Jhansi</div>
+        <div class="edu-row"><span class="edu-label">Board</span><span class="edu-val highlight">ICSE</span></div>
+        <div class="edu-row"><span class="edu-label">Stream</span><span class="edu-val">Science — PCM + Computer Science</span></div>
+        <div class="edu-row"><span class="edu-label">Class XII</span><span class="edu-val green">73.6%</span></div>
+        <div class="edu-row"><span class="edu-label">Class X</span><span class="edu-val green">83.4%</span></div>
+        <div class="edu-subjects-title">Subjects</div> 
+        <div class="edu-sub-tags">
+          <span class="edu-tag">Physics</span>
+          <span class="edu-tag">Chemistry</span>
+          <span class="edu-tag">Mathematics</span>
+          <span class="edu-tag">Computer Science</span>
+          <span class="edu-tag">English</span>
+        </div>
+      `
+    }
+  };
+
+  function openEduDetail(key) {
+    const cards = document.getElementById('edu-cards');
+    const detail = document.getElementById('edu-detail');
+    const content = document.getElementById('edu-detail-content');
+    const breadcrumb = document.getElementById('edu-detail-breadcrumb');
+
+    content.innerHTML = eduData[key].html;
+    breadcrumb.textContent = eduData[key].breadcrumb;
+
+    cards.style.display = 'none';
+    detail.style.opacity = '1';
+    detail.style.transform = 'translateX(0)';
+    detail.style.pointerEvents = 'auto';
+    detail.style.display = 'block';
+
+  }
+
+  function closeEduDetail() {
+    const cards = document.getElementById('edu-cards');
+    const detail = document.getElementById('edu-detail');
+
+    detail.style.display = 'none';
+    detail.style.opacity = '0';
+    cards.style.display = 'flex';
+    cards.style.opacity = '1';
+    cards.style.transform = 'translateX(0)';
+    cards.style.pointerEvents = 'auto';
+
+  }
+</script>
+
+<script>
   const allNavBtns = document.querySelectorAll('.nav-btn');
   const allSbLinks = document.querySelectorAll('.sb-link');
-  const secMap  = {about:'sl-g', skills:'sl-c', projects:'sl-y', ctf:'sl-r', certs:'sl-p', contact:'sl-o'};
-  const nbMap   = {about:'nb-g', skills:'nb-c', projects:'nb-y', ctf:'nb-r', certs:'nb-p', contact:'nb-o'};
+  const secMap  = {about:'sl-g', skills:'sl-c', projects:'sl-y', ctf:'sl-r', certs:'sl-p', edu:'sl-edu', contact:'sl-o'};
+  const nbMap   = {about:'nb-g', skills:'nb-c', projects:'nb-y', ctf:'nb-r', certs:'nb-p', edu:'nb-edu', contact:'nb-o'};
 
   function nav(id, btn, sb) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
