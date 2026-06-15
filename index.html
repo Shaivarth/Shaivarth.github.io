@@ -23,6 +23,7 @@
     background-size:cover;
     background-position:70% 10%;
     background-attachment:fixed;
+    overscroll-behavior-x: none;
     color: #c8c8b0;
     font-family: 'Share Tech Mono', monospace;
     font-size: 13px;
@@ -1732,6 +1733,155 @@ document.getElementById('photoModal').addEventListener('click', function(e) {
   if (e.target === this) this.style.display = 'none';
 });
 </script>
+<script>
+  // Internal swipe-back navigation history
+  (function () {
+    const history = [];
 
+    // Patch the nav() function to record history
+    const _originalNav = window.nav;
+    window.nav = function (id, btn, sb) {
+      const currentVisible = document.querySelector('.section.visible');
+      if (currentVisible) {
+        const currentId = currentVisible.id.replace('sec-', '');
+        if (currentId !== id) {
+          history.push(currentId);
+        }
+      }
+      _originalNav(id, btn, sb);
+    };
+
+    function goBack() {
+      if (history.length === 0) return;
+      const prevId = history.pop();
+      _originalNav(prevId, null, null);
+
+      // Sync nav button active state
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sb-link').forEach(l => l.classList.remove('active'));
+
+      const nbMap = {about:'nb-g',skills:'nb-c',projects:'nb-y',ctf:'nb-r',certs:'nb-p',edu:'nb-edu',comp:'nb-com',contact:'nb-o'};
+      const secMap = {about:'sl-g',skills:'sl-c',projects:'sl-y',ctf:'sl-r',certs:'sl-p',edu:'sl-edu',comp:'sl-com',contact:'sl-o'};
+
+      document.querySelectorAll('.nav-btn').forEach(b => {
+        if (b.classList.contains(nbMap[prevId])) b.classList.add('active');
+      });
+      document.querySelectorAll('.sb-link').forEach(l => {
+        if (l.classList.contains(secMap[prevId])) l.classList.add('active');
+      });
+    }
+
+    // Trackpad horizontal swipe (desktop)
+    let wheelTimer = null;
+    document.addEventListener('wheel', e => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30) {
+        e.preventDefault();
+        if (wheelTimer) return; // debounce — one swipe at a time
+        if (e.deltaX < 0) { // swipe right = go back
+          goBack();
+        }
+        wheelTimer = setTimeout(() => { wheelTimer = null; }, 800);
+      }
+    }, { passive: false });
+
+    // Touch swipe (mobile / touchscreen)
+    let startX = 0, startY = 0;
+    document.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
+        if (dx > 0) goBack(); // swipe right = go back
+      }
+    }, { passive: true });
+
+  })();
+</script>
+<script>
+  // ── Sa Re Ga Ma Pa Dha Ni Sa — Section Swaras ─────────────
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  let ctx = null;
+
+  // Each section mapped to its swara frequency (just intonation)
+  const swaraMap = {
+    about:    261.63,   // Sa  — C4
+    skills:   293.66,   // Re  — D4
+    projects: 329.63,   // Ga  — E4
+    ctf:      349.23,   // Ma  — F4
+    certs:    392.00,   // Pa  — G4
+    edu:      440.00,   // Dha — A4
+    comp:     493.88,   // Ni  — B4
+    contact:  523.25,   // Sa' — C5
+  };
+
+  function initAudio() {
+    if (!ctx) ctx = new AudioCtx();
+    if (ctx.state === 'suspended') ctx.resume();
+  }
+
+  function playSwara(freq) {
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+
+    // Main tone — sitar-like using sawtooth + filtering
+    const osc1 = ctx.createOscillator();
+    osc1.type = 'sawtooth';
+    osc1.frequency.setValueAtTime(freq, now);
+
+    // Slight detune for warmth (like sympathetic strings)
+    const osc2 = ctx.createOscillator();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(freq * 1.003, now);
+
+    // Bandpass filter — removes harshness, keeps the tonal body
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.value = freq * 2.2;
+    filter.Q.value = 2.5;
+
+    // Envelope — quick attack, natural decay like a plucked string
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.18, now + 0.008);   // attack
+    gain.gain.exponentialRampToValueAtTime(0.06, now + 0.18); // decay
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55); // release
+
+    const gain2 = ctx.createGain();
+    gain2.gain.setValueAtTime(0, now);
+    gain2.gain.linearRampToValueAtTime(0.07, now + 0.01);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+    osc1.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+
+    osc1.start(now);
+    osc1.stop(now + 0.6);
+    osc2.start(now);
+    osc2.stop(now + 0.5);
+  }
+
+  // ── Hook into nav() ────────────────────────────────────────
+  const _navBeforeSwara = window.nav;
+  window.nav = function (id, btn, sb) {
+    initAudio();
+    const freq = swaraMap[id];
+    if (freq) playSwara(freq);
+    _navBeforeSwara(id, btn, sb);
+  };
+
+  // ── Unlock AudioContext on first gesture ───────────────────
+  ['click','keydown','touchstart'].forEach(ev =>
+    document.addEventListener(ev, initAudio, { once: true })
+  );
+</script>
 </body>
 </html>
