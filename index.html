@@ -221,14 +221,15 @@ a {
   .sk-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; }
   .sk-cat { border: 1px solid #141414; padding: 15px; background: #060606; }
   .sk-cat-t { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  
 .sk-item{
   display:inline-block;
   padding:6px 10px;
   margin:4px;
   font-size:10px;
-  border:1px solid #1a1a1a;
+  border:1px solid #1d1d1d;
   background:#0a0a0a;
-  color:#888;
+  color:#c6c6c6;
   transition:all .15s ease;
   cursor:default;
 }
@@ -241,6 +242,46 @@ a {
   border-color:currentColor;
   color: grey;
   transform:translateY(-1px);
+}
+
+.badge-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+    margin-top:10px;
+}
+
+.badge-item{
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    border:1px solid #1a1a1a;
+    background:#060606;
+    transition:.2s ease;
+}
+
+
+.badge-item:hover{
+    border-color:#666;
+    transform:translateY(-2px);
+}
+
+
+.badge-item img{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+}
+
+.badge-label{
+    margin-top:8px;
+    font-size:10px;
+    color:#bdbdbd;
+    text-align:center;
+    line-height:1.3;
 }
 
   .bar-row { margin: 5px 0; }
@@ -983,13 +1024,128 @@ a {
 
       <!-- SKILLS -->
       <div id="sec-skills" class="section">
-        <div class="sec-hdr hdr-c">SKILLS</div>
+<div style="
+    position: relative;
+    max-height: 320px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a #0a0a0a;
+">
+          <div class="sec-hdr hdr-c">SKILLS & ACHIEVEMENTS</div>
 
-        <div class="sk-grid">
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#00e5ff;">MONITORING</div><div class="sk-item">Log Analysis (Linux / Windows Logs)</div><div class="sk-item">Network Traffic Analysis (Wireshark)</div><div class="sk-item">Alert Monitoring</div><div class="sk-item">Threat Detection</div></div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#ff4444;">INCIDENT RESPONSE</div><div class="sk-item">Alert Triage</div><div class="sk-item">Incident Investigation</div><div class="sk-item">Malware Analysis</div><div class="sk-item">IOC Analysis</div></div>
+            <div class="panel">
+              <div class="panel-title">
+                TRYHACKME ACHIEVEMENTS
+              </div>
+
+<div class="badge-grid">
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/cat linux.txt.png" alt="cat linux.txt">
+    <div class="badge-label">cat linux.txt</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/networking nerd.png" alt="Networking Nerd">
+    <div class="badge-label">Networking Nerd</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/webbed.png" alt="Webbed">
+    <div class="badge-label">Webbed</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/worldwideweb.png" alt="World Wide Web">
+    <div class="badge-label">World Wide Web</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/3daystreak.png" alt="3 Day Streak">
+    <div class="badge-label">3 Day Streak</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/7-day-streak.png" alt="7 Day Streak">
+    <div class="badge-label">7 Day Streak</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/30-day-streak.png" alt="30 Day Streak">
+    <div class="badge-label">30 Day Streak</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/raffle-royalty.png" alt="Raffle Royalty">
+    <div class="badge-label">Raffle Royalty</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/cyber-ready.png" alt="Cyber Ready">
+    <div class="badge-label">Cyber Ready</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/90-day-streak.png" alt="90 Day Streak">
+    <div class="badge-label">90 Day Streak</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/first-step-into-soc.png" alt="First Step into SOC">
+    <div class="badge-label">First Step into SOC</div>
+  </a>
+
+
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/soc-apprentice.png" alt="SOC Apprentice">
+    <div class="badge-label">SOC Apprentice</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/first-alert-closed.png" alt="First Alert Closed">
+    <div class="badge-label">First Alert Closed</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/first-scenario-completed.png" alt="First Scenario Completed">
+    <div class="badge-label">First Scenario Completed</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/100-true-positive-rate.png" alt="100% True Positive Rate">
+    <div class="badge-label">100% True Positive</div>
+  </a>
+
+  <a href="https://tryhackme.com/p/sarthakmishra?tab=badges" target="_blank" class="badge-item">
+    <img src="Images/thmbadges/defensive-toolsmith.png" alt="Defensive Toolsmith">
+    <div class="badge-label">Defensive Toolsmith</div>
+  </a>
+
+</div>
+            </div>
+            <div style="text-align:center; font-size:10px; color:#555; margin:10px 0 18px;">▼ SCROLL TO VIEW SKILLS ▼</div>
+          <div class="sk-grid">
+            <div class="sk-cat">
+              <div class="sk-cat-t" style="color:#00e5ff;">MONITORING
+              </div>
+              <div class="sk-item">Log Analysis (Linux / Windows Logs)</div>
+              <div class="sk-item">Network Traffic Analysis (Wireshark)</div>
+              <div class="sk-item">Alert Monitoring</div>
+              <div class="sk-item">Threat Detection</div>
+            </div>
+            <div class="sk-cat">
+              <div class="sk-cat-t" style="color:#ff4444;">
+                INCIDENT RESPONSE
+              </div>
+              <div class="sk-item">Alert Triage</div>
+              <div class="sk-item">Incident Investigation</div>
+              <div class="sk-item">Malware Analysis</div>
+              <div class="sk-item">IOC Analysis</div>
+            </div>
           <div class="sk-cat"><div class="sk-cat-t" style="color:#ffd600;">LANGUAGES</div><div class="sk-item">Python</div><div class="sk-item">C++</div><div class="sk-item">SQL</div><div class="sk-item">PowerShell</div></div>
           <div class="sk-cat"><div class="sk-cat-t" style="color:#cc88ff;">PLATFORMS</div><div class="sk-item">Splunk</div><div class="sk-item">Wireshark</div><div class="sk-item">Kali Linux</div><div class="sk-item">TryHackMe</div></div>
+        </div>
         </div>
       </div>
 
