@@ -27,6 +27,7 @@
     color: #c8c8b0;
     font-family: 'Share Tech Mono', monospace;
     font-size: 13px;
+    
   }
 
   /* DEAD CENTRE — works as local file too */
@@ -220,7 +221,7 @@ a {
 
   .sk-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; }
   .sk-cat { border: 1px solid #141414; padding: 15px; background: #060606; }
-  .sk-cat-t { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .sk-cat-t { align-self: center; font-size:9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
   
 .sk-item{
   display:inline-block;
@@ -305,12 +306,14 @@ a {
   .easy{color:#00ff41;border-color:#00ff41;}.med{color:#ffd600;border-color:#ffd600;}.hard{color:#ff4444;border-color:#ff4444;}
 
   .cert-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
-  .cert-card { border: 1px solid #1a1a1a; padding: 12px; background: #060606; text-align: center; }
+  .cert-card {border: 1px solid #1a1a1a; padding: 12px; background: #060606; text-align: center; }
+  .cert-card-grey { filter:grayscale(100%) ;border: 1px solid #1a1a1a; padding: 12px; background: #060606; text-align: center; }
+
   .cert-badge { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-family: 'VT323', monospace; font-size: 16px; background: #080808; }
   .cert-name { font-size: 11px; color: #cdcdcd; margin-bottom: 3px; }
   .cert-org { font-size: 10px; color: #767676; }
   .cert-st { margin-top: 5px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
-  .cs-e{color:#0d822a;}.cs-p{color:#ffd600;}.cs-n{color:#bcbcbc;}
+  .cs-e{color:#bcbcbc;}.cs-p{color:#bcbcbc;}.cs-n{color:#bcbcbc;}
 
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .c-item { border: 1px solid #1a1a1a; padding: 8px 10px; background: #060606; display: flex; gap: 10px; align-items: center; cursor: pointer; transition: border-color 0.1s; }
@@ -322,7 +325,7 @@ a {
   .com-card { display: flex;overflow: visible; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #141414; padding: 10px; background: #060606; }
   .com-content { flex: 1; }
   .com-desc { font-size: 11px; color: #909090; margin-top: 5px; line-height: 1.6; }
-  .com-img { width: 120px; height: 80px; object-fit: cover; border: 0.7px solid #e1e1e1;transition: transform 0.3s ease;}
+  .com-img { width: 120px; height: 80px; object-fit: cover; border: 0.7px solid #171717;transition: transform 0.3s ease;}
   .com-img:hover { transform: scale(4);z-index: 5;}
 
 
@@ -800,7 +803,7 @@ a {
   flex: 1;
   border: 1px solid #202020;
   background: #000000;
-  padding: 18px 16px;
+  padding: 68px 16px;
   cursor: pointer;
   position: relative;
   transition: none;
@@ -898,7 +901,7 @@ a {
 ">
   <span onclick="document.getElementById('photoModal').style.display='none'"
     style="position:absolute;top:20px;right:30px;color:white;font-size:10px;cursor:pointer;">✕</span>
-  <img src="Images/NewLinkedinDP.webp" style="max-height:50vh;max-width:35vw;border-radius:50%;border:2px solid #2a2a2a;">
+  <img src="Images/NewLinkedinDP.webp" style="filter:grayscale(100%);max-height:50vh;max-width:35vw;border-radius:50%;border:2px solid #2a2a2a;">
 </div>
 
 <div id="layout">
@@ -957,11 +960,11 @@ a {
 
 
       <div id="status-box">
-        <div class="st-title">Quick Info :</div>
-        <div class="st-row"><span class="st-key">Role</span><span style="color:#2d7d41;">SOC Analyst</span></div>
-        <div class="st-row"><span class="st-key">Focus</span><span style="color:#2c7c85;">Security</span></div>
-        <div class="st-row"><span class="st-key">Writeups</span><span style="color:#88782c;">Active</span></div>
-        <div class="st-row"><span class="st-key">Open To</span><span style="color:#633984;">CyberSec Roles</span></div>
+        <div class="st-title">Quick Info</div>
+        <div class="st-row"><span class="st-key">Role</span><span style="color:#a1a0a0;">SOC Analyst</span></div>
+        <div class="st-row"><span class="st-key">Focus</span><span style="color:#a1a0a0;">Security</span></div>
+        <div class="st-row"><span class="st-key">Writeups</span><span style="color:#a1a0a0;">Active</span></div>
+        <div class="st-row"><span class="st-key">Open To</span><span style="color:#a1a0a0;">CyberSec Roles</span></div>
       </div>
     </div>
 
@@ -984,7 +987,8 @@ a {
                   style="
                     width: 80px;
                     height: 80px;
-                    filter: saturate(0.8) contrast(0.9);
+                    border-radius: 25%;
+                    filter:grayscale(100%);
                     object-fit: cover;
                     object-position: center top;
                     border: 1px solid #000000;
@@ -1004,7 +1008,7 @@ a {
               <!-- TEXT beside photo -->
               <div class="about-text">
                 <p>
-                  Hey, I'm <span style="color:#a5b314;">Sarthak Mishra</span>, a SOC Analyst and Blue Team enthusiast 
+                  Hey, I'm <span style="color:#4d4d4d;">Sarthak Mishra</span>, a SOC Analyst and Blue Team enthusiast 
                   focused on threat detection, incident response, SIEM technologies, and cybersecurity automation.
                   I build hands-on projects including network monitoring systems, SOC simulation
                 </p>
@@ -1127,7 +1131,7 @@ a {
             <div style="text-align:center; font-size:10px; color:#555; margin:10px 0 18px;">▼ SCROLL TO VIEW SKILLS ▼</div>
           <div class="sk-grid">
             <div class="sk-cat">
-              <div class="sk-cat-t" style="color:#00e5ff;">MONITORING
+              <div class="sk-cat-t" style="color:#9c9c9c;">MONITORING
               </div>
               <div class="sk-item">Log Analysis (Linux / Windows Logs)</div>
               <div class="sk-item">Network Traffic Analysis (Wireshark)</div>
@@ -1135,7 +1139,7 @@ a {
               <div class="sk-item">Threat Detection</div>
             </div>
             <div class="sk-cat">
-              <div class="sk-cat-t" style="color:#ff4444;">
+              <div class="sk-cat-t" style="color:#9c9c9c;">
                 INCIDENT RESPONSE
               </div>
               <div class="sk-item">Alert Triage</div>
@@ -1143,8 +1147,8 @@ a {
               <div class="sk-item">Malware Analysis</div>
               <div class="sk-item">IOC Analysis</div>
             </div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#ffd600;">LANGUAGES</div><div class="sk-item">Python</div><div class="sk-item">C++</div><div class="sk-item">SQL</div><div class="sk-item">PowerShell</div></div>
-          <div class="sk-cat"><div class="sk-cat-t" style="color:#cc88ff;">PLATFORMS</div><div class="sk-item">Splunk</div><div class="sk-item">Wireshark</div><div class="sk-item">Kali Linux</div><div class="sk-item">TryHackMe</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#9c9c9c;">LANGUAGES</div><div class="sk-item">Python</div><div class="sk-item">C++</div><div class="sk-item">SQL</div><div class="sk-item">PowerShell</div></div>
+          <div class="sk-cat"><div class="sk-cat-t" style="color:#9c9c9c;">PLATFORMS</div><div class="sk-item">Splunk</div><div class="sk-item">Wireshark</div><div class="sk-item">Kali Linux</div><div class="sk-item">TryHackMe</div></div>
         </div>
         </div>
       </div>
@@ -1153,9 +1157,7 @@ a {
 
       <div id="sec-projects" class="section">
         <div class="sec-hdr hdr-y">PROJECTS</div>
-        <div class="panel-title" style="text-align:center;">
-          Click on the project card to view its GitHub Repository.
-        </div>
+
         <div style="position:relative;">
           <div class="proj-scroll" style="max-height: 250px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #1a1a1a #0a0a0a;">
           <a href="https://github.com/Shaivarth/Arpex" target="_blank" style="text-decoration:none;">
@@ -1163,16 +1165,14 @@ a {
                 onmouseover="this.style.borderColor='#888'"
                 onmouseout="this.style.borderColor='#141414'">
 
-              <div class="proj-name" style="color:#e8e8e8;">
-                [01] ARPEX
-              </div>
+              <div class="proj-name" style="color:#e8e8e8;">ARPEX</div>
 
               <div class="proj-tags">
-                <span class="tag" style="color:#00ff41;">PYTHON</span>
-                <span class="tag" style="color:#00e5ff;">SCAPY</span>
-                <span class="tag" style="color:#ffd600;">ARP SPOOFING</span>
-                <span class="tag" style="color:#d77f22;">SQLITE</span>
-                <span class="tag" style="color:#cc44ff;">NETWORK MONITORING</span>
+                <span class="tag" style="color:#575757;">PYTHON</span>
+                <span class="tag" style="color:#575757;">SCAPY</span>
+                <span class="tag" style="color:#575757;">ARP SPOOFING</span>
+                <span class="tag" style="color:#575757;">SQLITE</span>
+                <span class="tag" style="color:#575757;">NETWORK MONITORING</span>
               </div>
 
               <div class="proj-desc">
@@ -1186,14 +1186,12 @@ a {
                 onmouseover="this.style.borderColor='#888'"
                 onmouseout="this.style.borderColor='#141414'">
 
-              <div class="proj-name" style="color:#e8e8e8;">
-                [02] XENTINEL
-              </div>
+              <div class="proj-name" style="color:#e8e8e8;">XENTINEL</div>
               <div class="proj-tags">
-                <span class="tag" style="color:#00ff41;">PYTHON</span>
-                <span class="tag" style="color:#00e5ff;">SIEM</span>
-                <span class="tag" style="color:#ffd600;">THREAT DETECTION</span>
-                <span class="tag" style="color:#d77f22;">SOC</span>
+                <span class="tag" style="color:#575757;">PYTHON</span>
+                <span class="tag" style="color:#575757;">SIEM</span>
+                <span class="tag" style="color:#575757;">THREAT DETECTION</span>
+                <span class="tag" style="color:#575757;">SOC</span>
               </div>
 
               <div class="proj-desc">
@@ -1205,13 +1203,13 @@ a {
             <div class="proj-card"
                 onmouseover="this.style.borderColor='#888'"
                 onmouseout="this.style.borderColor='#141414'">
-              <div class="proj-name" style="color:#e8e8e8;">[03] SHAARNGA</div>
+              <div class="proj-name" style="color:#e8e8e8;">SHAARNGA</div>
               <div class="proj-tags">
-                <span class="tag" style="color:#00e5ff;">CRYPTOGRAPHY</span>
-                <span class="tag" style="color:#00ff41;">PYTHON</span>
-                <span class="tag" style="color:#cc44ff;">CUSTOM CIPHER</span>
-                <span class="tag" style="color:#ffd600;">BINARY ENCODING</span>
-                <span class="tag" style="color:#ff6644;">ENCRYPTION</span>
+                <span class="tag" style="color:#575757;">CRYPTOGRAPHY</span>
+                <span class="tag" style="color:#575757;">PYTHON</span>
+                <span class="tag" style="color:#575757;">CUSTOM CIPHER</span>
+                <span class="tag" style="color:#575757;">BINARY ENCODING</span>
+                <span class="tag" style="color:#575757;">ENCRYPTION</span>
               </div>
               <div class="proj-desc">
                 A custom high-security cipher algorithm using fixed-length binary encoding with unique prefixes for lowercase, uppercase, digits, and symbols — designed to reduce pattern recognition and resist brute-force and frequency analysis attacks.
@@ -1272,7 +1270,7 @@ a {
             </div>
 
             <!-- SC-200 -->
-              <div class="cert-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'">
+              <div class="cert-card-grey" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'">
                 <div class="cert-badge" style="border:none;background:transparent;">
                   <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" style="width:50px;height:50px;object-fit:contain;">
                 </div>
@@ -1282,7 +1280,7 @@ a {
               </div>
 
             <!-- CySA+ -->
-            <div class="cert-card">
+            <div class="cert-card-grey">
               <div class="cert-badge" style="border:none;background:transparent;">
                 <img src="https://acgcyberacademy.fr/wp-content/uploads/2024/07/Plus_CySA_Certification-1.png" style="width:60px;height:60px;object-fit:contain;">
               </div>
@@ -1307,10 +1305,9 @@ a {
 
             <!-- College Card -->
             <div class="edu-card" onclick="openEduDetail('college')">
-              <div class="edu-card-label">Undergraduate</div>
+              <div class="edu-card-label">Graduation</div>
               <div class="edu-card-title">Bachelor of Technology [CSE]</div>
               <div class="edu-card-sub">Vellore Institute of Technology, Bhopal</div>
-              <img src="Images/college.webp" style="width:100%; height:110px; object-fit:cover; border:1px solid #2a2a2a; display:block; margin:10px 0;">
               <div class="edu-card-meta">2023 — 2027</div>
               <div class="edu-card-arrow">&#x25B6;</div>
             </div>
@@ -1320,7 +1317,6 @@ a {
               <div class="edu-card-label">Secondary Education</div>
               <div class="edu-card-title">Class XII &amp; X</div>
               <div class="edu-card-sub">Rani Laxmibai Public School, Jhansi</div>
-              <img src="Images/school.webp" style="filter: brightness(1.1);width:100%; height:110px; object-fit:cover; border:1px solid #2a2a2a; display:block; margin:10px 0;">
               <div class="edu-card-meta">Passed 2022</div> 
               <div class="edu-card-arrow">&#x25B6;</div>
             </div> 
@@ -1455,7 +1451,7 @@ a {
         <div class="edu-name">Vellore Institute of Technology, Bhopal</div>
         <div class="edu-row"><span class="edu-label">Degree</span><span class="edu-val highlight">B.Tech · Computer Science &amp; Engineering</span></div>
         <div class="edu-row"><span class="edu-label">Duration</span><span class="edu-val">2023 — 2027</span></div>
-        <div class="edu-row"><span class="edu-label">Status</span><span class="edu-val green">Final Year</span></div>
+        <div class="edu-row"><span class="edu-label">Status</span><span class="edu-val">Final Year</span></div>
         <div class="edu-row"><span class="edu-label">CGPA</span><span class="edu-val highlight">7.6 / 10</span></div>
         <div class="edu-row"><span class="edu-label">University</span><span class="edu-val">Vellore Institute of Technology - VIT</span></div>
         <div class="edu-subjects-title">Key Subjects</div>
@@ -1477,8 +1473,8 @@ a {
         <div class="edu-name">Rani Laxmibai Public School, Jhansi</div>
         <div class="edu-row"><span class="edu-label">Board</span><span class="edu-val highlight">ICSE</span></div>
         <div class="edu-row"><span class="edu-label">Stream</span><span class="edu-val">Science — PCM + Computer Science</span></div>
-        <div class="edu-row"><span class="edu-label">Class XII</span><span class="edu-val green">73.6%</span></div>
-        <div class="edu-row"><span class="edu-label">Class X</span><span class="edu-val green">83.4%</span></div>
+        <div class="edu-row"><span class="edu-label">Class XII</span><span class="edu-val">73.6%</span></div>
+        <div class="edu-row"><span class="edu-label">Class X</span><span class="edu-val">83.4%</span></div>
         <div class="edu-subjects-title">Subjects</div> 
         <div class="edu-sub-tags">
           <span class="edu-tag">Physics</span>
@@ -1946,88 +1942,6 @@ document.getElementById('photoModal').addEventListener('click', function(e) {
     }, { passive: true });
 
   })();
-</script>
-<script>
-  // ── Sa Re Ga Ma Pa Dha Ni Sa — Section Swaras ─────────────
-  const AudioCtx = window.AudioContext || window.webkitAudioContext;
-  let ctx = null;
-
-  // Each section mapped to its swara frequency (just intonation)
-  const swaraMap = {
-    about:    261.63,   // Sa  — C4
-    skills:   293.66,   // Re  — D4
-    projects: 329.63,   // Ga  — E4
-    ctf:      349.23,   // Ma  — F4
-    certs:    392.00,   // Pa  — G4
-    edu:      440.00,   // Dha — A4
-    comp:     493.88,   // Ni  — B4
-    contact:  523.25,   // Sa' — C5
-  };
-
-  function initAudio() {
-    if (!ctx) ctx = new AudioCtx();
-    if (ctx.state === 'suspended') ctx.resume();
-  }
-
-  function playSwara(freq) {
-    if (!ctx) return;
-
-    const now = ctx.currentTime;
-
-    // Main tone — sitar-like using sawtooth + filtering
-    const osc1 = ctx.createOscillator();
-    osc1.type = 'sawtooth';
-    osc1.frequency.setValueAtTime(freq, now);
-
-    // Slight detune for warmth (like sympathetic strings)
-    const osc2 = ctx.createOscillator();
-    osc2.type = 'sine';
-    osc2.frequency.setValueAtTime(freq * 1.003, now);
-
-    // Bandpass filter — removes harshness, keeps the tonal body
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.value = freq * 2.2;
-    filter.Q.value = 2.5;
-
-    // Envelope — quick attack, natural decay like a plucked string
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.18, now + 0.008);   // attack
-    gain.gain.exponentialRampToValueAtTime(0.06, now + 0.18); // decay
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55); // release
-
-    const gain2 = ctx.createGain();
-    gain2.gain.setValueAtTime(0, now);
-    gain2.gain.linearRampToValueAtTime(0.07, now + 0.01);
-    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
-
-    osc1.connect(filter);
-    filter.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc2.connect(gain2);
-    gain2.connect(ctx.destination);
-
-    osc1.start(now);
-    osc1.stop(now + 0.6);
-    osc2.start(now);
-    osc2.stop(now + 0.5);
-  }
-
-  // ── Hook into nav() ────────────────────────────────────────
-  const _navBeforeSwara = window.nav;
-  window.nav = function (id, btn, sb) {
-    initAudio();
-    const freq = swaraMap[id];
-    if (freq) playSwara(freq);
-    _navBeforeSwara(id, btn, sb);
-  };
-
-  // ── Unlock AudioContext on first gesture ───────────────────
-  ['click','keydown','touchstart'].forEach(ev =>
-    document.addEventListener(ev, initAudio, { once: true })
-  );
 </script>
 </body>
 </html>
