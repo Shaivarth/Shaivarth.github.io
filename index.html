@@ -193,7 +193,7 @@ a {
   .st-key { color: #807f7f; }
 
   /* CONTENT */
-  #content { flex: 1; padding: 12px; overflow: visible; }
+  #content { background-color: #141414 ;flex: 1; padding: 12px; overflow: visible; }
   .section { display: none; overflow: visible;}
   .section.visible { display: block; }
 
@@ -305,7 +305,7 @@ a {
   .diff { padding: 1px 6px; font-size: 9px; border: 1px solid; letter-spacing: 1px; }
   .easy{color:#00ff41;border-color:#00ff41;}.med{color:#ffd600;border-color:#ffd600;}.hard{color:#ff4444;border-color:#ff4444;}
 
-  .cert-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+  .cert-grid { padding-top: 2%;display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
   .cert-card {border: 1px solid #1a1a1a; padding: 12px; background: #060606; text-align: center; }
   .cert-card-grey { filter:grayscale(100%) ;border: 1px solid #1a1a1a; padding: 12px; background: #060606; text-align: center; }
 
@@ -315,7 +315,7 @@ a {
   .cert-st { margin-top: 5px; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
   .cs-e{color:#bcbcbc;}.cs-p{color:#bcbcbc;}.cs-n{color:#bcbcbc;}
 
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .contact-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 5px; }
   .c-item { border: 1px solid #1a1a1a; padding: 8px 10px; background: #060606; display: flex; gap: 10px; align-items: center; cursor: pointer; transition: border-color 0.1s; }
   .c-icon { font-family: 'VT323', monospace; font-size: 18px; min-width: 28px; text-align: center; }
   .c-lbl { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #888888; }
@@ -477,7 +477,6 @@ a {
 
 .cert-card:hover{
   border-color:#888;
-  box-shadow:0 0 12px rgba(54,89,195,.4);
 }
 
 .cert-preview{
@@ -500,10 +499,7 @@ a {
   object-fit:cover;
 }
 
-.cert-card:hover .cert-preview{
-  opacity:1;
-  transform:scale(1);
-}
+
 
 #openChannelBtn{
   background:#050505;
@@ -608,8 +604,7 @@ a {
 }
 
 .thm-card:hover{
-    border-color:#4c4c4c;
-    box-shadow:0 0 10px rgba(150,150,150,0.25);
+    border-color:#888;
 }
 
 /* WRITEUP MODAL */
@@ -1028,14 +1023,16 @@ a {
 
       <!-- SKILLS -->
       <div id="sec-skills" class="section">
-<div style="
+
+          <div class="sec-hdr hdr-c">SKILLS & ACHIEVEMENTS</div>
+
+          <div style="
     position: relative;
-    max-height: 320px;
+    max-height: 280px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #1a1a1a #0a0a0a;
 ">
-          <div class="sec-hdr hdr-c">SKILLS & ACHIEVEMENTS</div>
 
             <div class="panel">
               <div class="panel-title">
@@ -1159,7 +1156,7 @@ a {
         <div class="sec-hdr hdr-y">PROJECTS</div>
 
         <div style="position:relative;">
-          <div class="proj-scroll" style="max-height: 250px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #1a1a1a #0a0a0a;">
+          <div class="proj-scroll" style="max-height: 270px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #1a1a1a #0a0a0a;">
           <a href="https://github.com/Shaivarth/Arpex" target="_blank" style="text-decoration:none;">
             <div class="proj-card"
                 onmouseover="this.style.borderColor='#888'"
@@ -1270,7 +1267,7 @@ a {
             </div>
 
             <!-- SC-200 -->
-              <div class="cert-card-grey" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'">
+              <div class="cert-card" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'">
                 <div class="cert-badge" style="border:none;background:transparent;">
                   <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" style="width:50px;height:50px;object-fit:contain;">
                 </div>
@@ -1280,7 +1277,7 @@ a {
               </div>
 
             <!-- CySA+ -->
-            <div class="cert-card-grey">
+            <div class="cert-card">
               <div class="cert-badge" style="border:none;background:transparent;">
                 <img src="https://acgcyberacademy.fr/wp-content/uploads/2024/07/Plus_CySA_Certification-1.png" style="width:60px;height:60px;object-fit:contain;">
               </div>
@@ -1379,10 +1376,13 @@ a {
         <div class="panel">
           <div class="panel-title">Reach Me</div>
           <div class="contact-grid">
-            <a href="mailto:sarthakatwork08@gmail.com" class="gmail-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" style="width: 30px;color:#ebebeb;">@</div><div><div class="c-lbl">Email</div><div class="c-val">sarthakatwork08@gmail.com</div></div></div></a>
+            <a href="mailto:sarthakatwork08@gmail.com" class="gmail-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon" ><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg"style="width:20px;height:20px;filter:invert(1);"></div><div><div class="c-lbl">Mail</div><div class="c-val">sarthakatwork08@gmail.com</div></div></div></a>
             <a href="https://github.com/Shaivarth" target="_blank" class="github-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/github.svg"style="width:20px;height:20px;filter:invert(1);"></div><div><div class="c-lbl">GitHub</div><div class="c-val">@Shaivarth</div></div></div></a>
             <a href="https://www.linkedin.com/in/shaivarth/" target="_blank" class="linkedin-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon"><img src="Images/LI-In-Bug.png" style="width:23px;height:20px;"></div><div><div class="c-lbl">LinkedIn</div><div class="c-val">@shaivarth</div></div></div></a>
             <a href="https://tryhackme.com/p/sarthakmishra" target="_blank" class="tryhackme-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon"><img src="https://assets.tryhackme.com/img/favicon.png" style="width:20px;height:20px;"></div><div><div class="c-lbl">TryHackMe</div><div class="c-val">@sarthakmishra</div></div></div></a>
+            <a href="https://x.com/sarthakm08" target="_blank" class="X-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg"style="width:20px;height:20px;filter:invert(1);"></div><div><div class="c-lbl">X</div><div class="c-val">@sarthakm08</div></div></div></a>
+            <a href="https://www.instagram.com/shaivarth" target="_blank" class="instagram-link"><div class="c-item" onmouseover="this.style.borderColor='#888'" onmouseout="this.style.borderColor='#1a1a1a'"><div class="c-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"style="width:20px;height:20px;"></div><div><div class="c-lbl">Instagram</div><div class="c-val">@Shaivarth</div></div></div></a>
+
           </div> 
           <a href="SarthakCV.pdf" download class="resume-btn"> 
             ACCESS RESUME
