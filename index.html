@@ -179,13 +179,13 @@ a {
   .sb-title { font-size: 9px; color: #666565; letter-spacing: 2px; text-transform: uppercase; padding: 8px 10px 3px; }
   .sb-link { display: block; padding: 6px 10px; cursor: pointer; border-left: 3px solid transparent; font-size: 11px; transition: all 0.1s; }
   .sb-link::before { content: '> '; }
-  .sl-g{color:#939393;}.sl-g::before{color:#00ff41;}.sl-g:hover,.sl-g.active{color:#e2e2e2;background:#252525;border-left-color:#00ff41;}
-  .sl-c{color:#939393;}.sl-c::before{color:#00e5ff;}.sl-c:hover,.sl-c.active{color:#e2e2e2;background:#252525;border-left-color:#00e5ff;}
-  .sl-y{color:#939393;}.sl-y::before{color:#ffd600;}.sl-y:hover,.sl-y.active{color:#e2e2e2;background:#252525;border-left-color:#ffd600;}
-  .sl-r{color:#939393;}.sl-r::before{color:#ff4444;}.sl-r:hover,.sl-r.active{color:#e2e2e2;background:#252525;border-left-color:#ff4444;}
-  .sl-p{color:#939393;}.sl-p::before{color:#cc88ff;}.sl-p:hover,.sl-p.active{color:#e2e2e2;background:#252525;border-left-color:#cc88ff;}
-  .sl-o{color:#939393;}.sl-o::before{color:#ff9900;}.sl-o:hover,.sl-o.active{color:#e2e2e2;background:#252525;border-left-color:#ff9900;}
-  .sl-com{color:#939393;}.sl-com::before{color:#858383;}.sl-com:hover,.sl-com.active{color:#e2e2e2;background:#252525;border-left-color:#a3a0a0;}
+  .sl-g{color:#939393;}.sl-g::before{color:#00ff41;}.sl-g:hover,.sl-g.active{color:#e2e2e2;background:#252525;}
+  .sl-c{color:#939393;}.sl-c::before{color:#00e5ff;}.sl-c:hover,.sl-c.active{color:#e2e2e2;background:#252525;}
+  .sl-y{color:#939393;}.sl-y::before{color:#ffd600;}.sl-y:hover,.sl-y.active{color:#e2e2e2;background:#252525;}
+  .sl-r{color:#939393;}.sl-r::before{color:#ff4444;}.sl-r:hover,.sl-r.active{color:#e2e2e2;background:#252525;}
+  .sl-p{color:#939393;}.sl-p::before{color:#cc88ff;}.sl-p:hover,.sl-p.active{color:#e2e2e2;background:#252525;}
+  .sl-o{color:#939393;}.sl-o::before{color:#ff9900;}.sl-o:hover,.sl-o.active{color:#e2e2e2;background:#252525;}
+  .sl-com{color:#939393;}.sl-com::before{color:#858383;}.sl-com:hover,.sl-com.active{color:#e2e2e2;background:#252525;}
 
   #status-box { margin: 12px 8px 0; border: 1px solid #1a1a1a; padding: 8px; background: #060606; font-size: 11px; }
   .st-title { color: #6b6b6b; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; border-bottom: 1px solid #141414; padding-bottom: 3px; }
@@ -1521,8 +1521,8 @@ a {
 <script>
   const allNavBtns = document.querySelectorAll('.nav-btn');
   const allSbLinks = document.querySelectorAll('.sb-link');
-  const secMap  = {about:'sl-g', skills:'sl-c', projects:'sl-y', ctf:'sl-r', certs:'sl-p', edu:'sl-edu', contact:'sl-o'};
-  const nbMap   = {about:'nb-g', skills:'nb-c', projects:'nb-y', ctf:'nb-r', certs:'nb-p', edu:'nb-edu', contact:'nb-o'};
+  const secMap  = {about:'sl-g', skills:'sl-c', projects:'sl-y', ctf:'sl-r', certs:'sl-p', edu:'sl-edu', comp:'sl-com', contact:'sl-o'};
+  const nbMap   = {about:'nb-g', skills:'nb-c', projects:'nb-y', ctf:'nb-r', certs:'nb-p', edu:'nb-edu', comp:'nb-com', contact:'nb-o'};
 
   function nav(id, btn, sb) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
