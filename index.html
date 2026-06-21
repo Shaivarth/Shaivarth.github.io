@@ -896,7 +896,7 @@ a {
 ">
   <span onclick="document.getElementById('photoModal').style.display='none'"
     style="position:absolute;top:20px;right:30px;color:white;font-size:10px;cursor:pointer;">✕</span>
-  <img src="Images/NewLinkedinDP.webp" style="filter:grayscale(100%);max-height:50vh;max-width:35vw;border-radius:50%;border:2px solid #2a2a2a;">
+  <img src="Images/image.png" style="max-height:50vh;max-width:35vw;border-radius:50%;border:2px solid #2a2a2a;">
 </div>
 
 <div id="layout">
@@ -975,18 +975,18 @@ a {
             <div class="panel-title">Profile</div>
             <div style="display:flex; gap:16px; align-items:flex-start;">
 
-              <!-- PHOTO -->
+               <!-- PHOTO 
               <div style="flex-shrink:0;">
-                <img src="Images/NewLinkedinDP.webp"
+                <img src="Images/me.webp"
                   onclick="openPhoto()"
                   style="
                     width: 80px;
                     height: 80px;
-                    border-radius: 25%;
-                    filter:grayscale(100%);
+                    border-radius: 0%;
                     object-fit: cover;
+                    filter: blur(0.2px);
+                    filter: brightness(0.9);
                     object-position: center top;
-                    border: 1px solid #000000;
                     display: block;
                     cursor: pointer; 
                   ">
@@ -998,21 +998,22 @@ a {
                   margin-top:4px; 
                   text-transform:uppercase;
                 ">Sarthak Mishra</div>
-              </div>
+              </div> -->
 
               <!-- TEXT beside photo -->
               <div class="about-text">
                 <p>
-                  Hey, I'm <span style="color:#ffffff;">Sarthak Mishra</span>, a SOC Analyst and Blue Team enthusiast 
+                  Hey, I'm <span style="color:#ffffff;">Sarthak Mishra</span>, a Security engineer and Blue Team practitioner 
                   focused on threat detection, incident response, SIEM technologies, and cybersecurity automation.
-                  I build hands-on projects including network monitoring systems, SOC simulation
+                </p>
+                <p>
+                  I build hands-on projects including network monitoring systems, SOC simulation platforms, and security automation tools using Python.<br>
                 </p>
               </div>
             </div>
             <!-- REMAINING PARAGRAPHS below both -->
             <div class="about-text" style="margin-top:-4px;">
               <p>
-                 platforms, and security automation tools using Python.<br>
                  Currently pursuing CEH v13 while gaining practical experience through home labs and Platforms like TryHackMe, HackTheBox and many more.
                  Open to SOC, Blue Team, and Network Security roles.
               </p>
