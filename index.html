@@ -788,11 +788,29 @@
         text-align: center;
       }
       .cert-card-grey {
-        filter: grayscale(100%);
-        border: 1px solid #1a1a1a;
-        padding: 12px;
-        background: #060606;
-        text-align: center;
+          border: 1px solid #1a1a1a;
+          background: #060606; 
+          padding: 12px;
+          min-height: 125px;       /* Same height as earned card */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .coming-soon {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .coming-soon span {
+          color: #545454;
+          font-size: 11px;
+          letter-spacing: 6px;
+          text-transform: uppercase;
+          user-select: none;
       }
 
       .cert-badge {
@@ -2404,7 +2422,7 @@
                   </div>
                 </div>
 
-                <!-- CEHv13  -->
+                <!-- CEHv13  
                 <div class="cert-card">
                   <div
                     class="cert-badge"
@@ -2423,9 +2441,9 @@
                   <div class="cert-name">Certified Ethical Hacker v13</div>
                   <div class="cert-org">EC-Council</div>
                   <div class="cert-st cs-p">[ In Progress ]</div>
-                </div>
+                </div> -->
 
-                <!-- SC-200 -->
+                <!-- SC-200 
                 <div
                   class="cert-card"
                   onmouseover="this.style.borderColor = '#888'"
@@ -2443,10 +2461,10 @@
                   <div class="cert-name">Security Operations Analyst</div>
                   <div class="cert-org">Microsoft — SC-200</div>
                   <div class="cert-st cs-n">[ Planned ]</div>
-                </div>
+                </div> -->
 
                 <!-- CySA+ -->
-                <div class="cert-card">
+               <!-- <div class="cert-card">
                   <div
                     class="cert-badge"
                     style="border: none; background: transparent"
@@ -2459,9 +2477,27 @@
                   <div class="cert-name">CompTIA Cybersecurity Analyst</div>
                   <div class="cert-org">CompTIA</div>
                   <div class="cert-st cs-n">[ Planned ]</div>
+                </div> -->
+
+                <div class="cert-card-grey">
+                    <div class="coming-soon">
+                        <span>[ COMING SOON ]</span>
+                    </div>
+                </div>
+
+                <div class="cert-card-grey">
+                    <div class="coming-soon">
+                        <span>[ COMING SOON ]</span>
+                    </div>
+                </div>
+
+                <div class="cert-card-grey">
+                    <div class="coming-soon">
+                        <span>[ COMING SOON ]</span>
+                    </div>
                 </div>
               </div>
-            </div>
+            </div> 
 
             <!-- EDUCATION -->
             <div id="sec-edu" class="section">
